@@ -21,7 +21,7 @@
             </div>
             <nav class="main-nav" id="main-nav" aria-label="Головне меню">
                 <ul class="main-nav__list">
-                    <li><a href="index.html?nav=home">Головна</a></li>
+                    <li><a href="about.html">Про нас</a></li>
                     <li><a href="directions.html">Напрями діяльності</a></li>
                     <li><a href="democracy.html">Місцева демократія</a></li>
                     <li class="has-dropdown">
@@ -66,49 +66,29 @@
                 
             </div>
         </section>
-        <section class="hero-slider hero-slider--news" aria-roledescription="carousel" aria-label="Новини Асоціації">
-            <div class="hero-slider__viewport">
-                <div class="hero-slider__track" data-hero-slider>
-                    <article class="hero-slide is-active" data-hero-slide aria-hidden="false">
-                        <div class="hero-slide__bg" style="--slide-image: url('news_1.png');"></div>
-                        <div class="container hero-slide__inner">
-                            <div class="hero-slide__copy">
-                                <h2 class="hero-slide__title">Андрій Крупник про реформу ОСН <span>у колонці для «Інтерфакс-Україна»</span></h2>
-                                <div class="hero-slide__lead">
-                                    <p>Як реформа органів самоорганізації населення змінює участь мешканців у справах громади.</p>
-                                </div>
-                                <div class="hero-slide__actions">
-                                    <a href="news-single.html" class="btn btn-primary">Читати новину</a>
-                                    <a href="#news-search" class="btn btn-outline btn-outline--light">Усі новини</a>
-                                </div>
-                            </div>
+        <section class="section section--tight news-mosaic-section" aria-label="Останні новини">
+            <div class="container">
+                <div class="news-mosaic" data-news-mosaic>
+                    <div class="news-mosaic__grid" data-news-mosaic-grid>
+                        <div class="news-mosaic__cell" data-mosaic-slot="tl"></div>
+                        <div class="news-mosaic__cell news-mosaic__cell--feat" data-mosaic-slot="feat"></div>
+                        <div class="news-mosaic__cell" data-mosaic-slot="tr"></div>
+                        <div class="news-mosaic__cell" data-mosaic-slot="bl"></div>
+                        <div class="news-mosaic__cell" data-mosaic-slot="br"></div>
+                    </div>
+                    <div class="news-mosaic__foot">
+                        <a href="#news-search" class="link-arrow">Усі новини &rarr;</a>
+                        <div class="news-mosaic__controls">
+                            <button type="button" class="hero-slider__arrow hero-slider__arrow--prev" data-mosaic-prev aria-label="Новіші матеріали">
+                                <span aria-hidden="true">&#8592;</span>
+                            </button>
+                            <p class="news-mosaic__hint" data-mosaic-hint aria-live="polite"></p>
+                            <button type="button" class="hero-slider__arrow hero-slider__arrow--next" data-mosaic-next aria-label="Наступні матеріали">
+                                <span aria-hidden="true">&#8594;</span>
+                            </button>
                         </div>
-                    </article>
-                    <article class="hero-slide" data-hero-slide aria-hidden="true">
-                        <div class="hero-slide__bg" style="--slide-image: url('news_2.png');"></div>
-                        <div class="container hero-slide__inner">
-                            <div class="hero-slide__copy">
-                                <h2 class="hero-slide__title">Галина Семенець про майбутнє <span>військово-цивільних адміністрацій</span></h2>
-                                <div class="hero-slide__lead">
-                                    <p>Колонка про роль громад в умовах воєнного управління.</p>
-                                </div>
-                                <div class="hero-slide__actions">
-                                    <a href="news-single.html" class="btn btn-primary">Читати новину</a>
-                                    <a href="#news-search" class="btn btn-outline btn-outline--light">Усі новини</a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                    </div>
                 </div>
-            </div>
-            <div class="container hero-slider__controls">
-                <button type="button" class="hero-slider__arrow hero-slider__arrow--prev" data-hero-prev aria-label="Попередня новина">
-                    <span aria-hidden="true">&#8592;</span>
-                </button>
-                <div class="hero-slider__dots" data-hero-dots role="tablist" aria-label="Новини"></div>
-                <button type="button" class="hero-slider__arrow hero-slider__arrow--next" data-hero-next aria-label="Наступна новина">
-                    <span aria-hidden="true">&#8594;</span>
-                </button>
             </div>
         </section>
         <section class="section section--tight">

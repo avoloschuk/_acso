@@ -10,7 +10,7 @@
     <link rel="preload" href="fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-home">
+<body>
     <!-- Header -->
     <header class="site-header">
         <div class="container header-inner">
@@ -21,7 +21,7 @@
             </div>
             <nav class="main-nav" id="main-nav" aria-label="Головне меню">
                 <ul class="main-nav__list">
-                    <li><a href="index.html?nav=home">Головна</a></li>
+                    <li><a href="about.html">Про нас</a></li>
                     <li><a href="directions.html">Напрями діяльності</a></li>
                     <li><a href="democracy.html">Місцева демократія</a></li>
                     <li class="has-dropdown">
@@ -59,27 +59,10 @@
     </header>
 
     <main>
-        <!-- Hero slider (ref: irf.ua — full-bleed, clickable slides) -->
-        <section class="hero-slider" aria-roledescription="carousel" aria-label="Головний слайдер">
-            <div class="hero-slider__viewport">
-                <div class="hero-slider__track" data-hero-slider>
-                    <article class="hero-slide is-active" data-hero-slide aria-hidden="false">
-                        <div class="hero-slide__bg hero-slide__bg--map" style="--slide-image: url('img/hero-home.jpg');"></div>
-                        <div class="container hero-slide__inner">
-                            <div class="hero-slide__copy">
-                                <p class="hero-slide__org">ВГО «Асоціація сприяння самоорганізації населення»</p>
-                                <h1 class="hero-slide__title">Сильні громади — <span>основа демократичної України</span></h1>
-                                <div class="hero-slide__lead">
-                                    <p>Сприяємо розбудові демократії та спроможних громад через самоорганізацію населення й дієву громадську участь у справах місцевого значення.</p>
-                                </div>
-                                <div class="hero-slide__actions">
-                                    <a href="about.html" class="btn btn-primary">Дізнатися більше</a>
-                                    <a href="analytics.html" class="btn btn-outline btn-outline--light">Аналітика</a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+        <section class="page-head page-head--image page-head--home" style="--head-image: url('img/hero-home.jpg')">
+            <div class="container">
+                <h1>Сильні громади — основа демократичної України</h1>
+                <p class="page-head__lead">Сприяємо розбудові демократії та спроможних громад через самоорганізацію населення й дієву громадську участь<br>у справах місцевого значення.</p>
             </div>
         </section>
 

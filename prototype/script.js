@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initHeroSlider();
+    initNewsMosaic();
     initDirectionSlider();
     initArchiveFilters();
     initNetworkMap();
@@ -86,6 +87,165 @@ function initHeroSlider() {
     restartAutoplay();
 }
 
+
+var NEWS_MOSAIC_SLOTS = ['bl', 'tl', 'feat', 'tr', 'br'];
+
+function initNewsMosaic() {
+    var root = document.querySelector('[data-news-mosaic]');
+    if (!root) return;
+
+    var pool = [
+        {
+            title: 'Андрій Крупник про реформу ОСН у колонці для «Інтерфакс-Україна»',
+            date: '7 листопада, 2026',
+            href: 'news-single.html',
+            img: 'news_1.png',
+            tags: 'Блоги',
+        },
+        {
+            title: 'Галина Семенець про майбутнє військово-цивільних адміністрацій: нова колонка у блогах LIGA.net',
+            date: '3 листопада, 2026',
+            href: 'news-single.html',
+            img: 'news_2.png',
+            tags: 'Блоги',
+        },
+        {
+            title: 'Реінтеграція має починатися з людей: Ірина Іванова виступила на Donbas Media Forum',
+            date: '22 жовтня, 2026',
+            href: 'news-single.html',
+            img: 'hero_bg.png',
+            tags: 'featured · Блоги · Події',
+            featured: true,
+        },
+        {
+            title: 'У Києві презентували путівник із дистанційної та гібридної участі жителів',
+            date: '17 вересня, 2026',
+            href: 'news-single.html',
+            img: 'news_1.png',
+            tags: 'Події',
+        },
+        {
+            title: 'Від стійкості громад до оновлення законодавства: у Києві відбулася XV Всеукраїнська конференція',
+            date: '15 вересня, 2026',
+            href: 'news-single.html',
+            img: 'hero_bg.png',
+            tags: 'Події',
+        },
+        {
+            title: 'Форум місцевої демократії 2026: головні підсумки',
+            date: '20 травня, 2026',
+            href: 'news-single.html',
+            img: 'hero_bg.png',
+            tags: 'Події',
+        },
+        {
+            title: 'Стартувала школа громадської участі для органів самоорганізації населення',
+            date: '15 травня, 2026',
+            href: 'news-single.html',
+            img: 'news_1.png',
+            tags: 'Навчання',
+        },
+        {
+            title: 'Анонс: вебінар «Бюджет участі: як запустити в громаді»',
+            date: '9 травня, 2026',
+            href: 'news-single.html',
+            img: '',
+            tags: 'Анонс',
+        },
+    ];
+
+    /* Контур 1→2→3→4→5: tl → bl → feat → tr → br (1 найновіша, 5 найстаріша у вікні) */
+    var assignments = { tl: 0, bl: 1, feat: 2, tr: 3, br: 4 };
+    var tail = 5;
+    var cells = {};
+    NEWS_MOSAIC_SLOTS.forEach(function (slot) {
+        cells[slot] = root.querySelector('[data-mosaic-slot="' + slot + '"]');
+    });
+    var prevBtn = root.querySelector('[data-mosaic-prev]');
+    var nextBtn = root.querySelector('[data-mosaic-next]');
+    var hint = root.querySelector('[data-mosaic-hint]');
+
+    function cloneMosaicAssign(src) {
+        return { bl: src.bl, tl: src.tl, feat: src.feat, tr: src.tr, br: src.br };
+    }
+
+    var history = [cloneMosaicAssign(assignments)];
+
+    function tileHtml(item, isFeat) {
+        var tags = item.tags
+            ? '<p class="news-mosaic__tags">' + escapeHtml(item.tags) + '</p>'
+            : '<p class="news-mosaic__tags news-mosaic__tags--empty" aria-hidden="true">&#8203;</p>';
+        var media = item.img
+            ? '<img src="' + escapeHtml(item.img) + '" alt="" loading="lazy">'
+            : '<span class="news-mosaic__placeholder" aria-hidden="true"></span>';
+        return (
+            '<a class="news-mosaic__tile" href="' + escapeHtml(item.href) + '">' +
+            '<span class="news-mosaic__media">' + media + '</span>' +
+            '<span class="news-mosaic__body">' + tags +
+            '<span class="news-mosaic__title">' + escapeHtml(item.title) + '</span>' +
+            '<time class="news-mosaic__date" datetime="">' + escapeHtml(item.date) + '</time>' +
+            '</span></a>'
+        );
+    }
+
+    function advanceContour(assign, incoming) {
+        return {
+            br: incoming,
+            tr: assign.br,
+            feat: assign.tr,
+            bl: assign.feat,
+            tl: assign.bl,
+        };
+    }
+
+    function render() {
+        NEWS_MOSAIC_SLOTS.forEach(function (slot) {
+            var idx = assignments[slot];
+            var item = pool[idx];
+            var cell = cells[slot];
+            if (!item || !cell) return;
+            cell.innerHTML = tileHtml(item, slot === 'feat');
+        });
+        if (hint) {
+            hint.textContent = 'Крок ' + history.length + ' · у пулі ' + pool.length + ' новин';
+        }
+        if (prevBtn) prevBtn.disabled = history.length <= 1;
+        if (nextBtn) nextBtn.disabled = tail >= pool.length;
+    }
+
+    function step(dir) {
+        if (dir > 0) {
+            if (tail >= pool.length) return;
+            assignments = advanceContour(assignments, tail);
+            tail++;
+            history.push(cloneMosaicAssign(assignments));
+        } else {
+            if (history.length <= 1) return;
+            history.pop();
+            assignments = cloneMosaicAssign(history[history.length - 1]);
+            tail--;
+        }
+        render();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { step(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
+
+    root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+    });
+
+    render();
+}
+
+function escapeHtml(s) {
+    return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
 
 function initDirectionSlider() {
     var root = document.querySelector('[data-dir-slider]');
@@ -418,6 +578,7 @@ const MENU_EN = {
 
 const HEADINGS_EN = {
     'Головна': 'Home',
+    'Сильні громади — основа демократичної України': 'Strong communities — the foundation of a democratic Ukraine',
     'Напрями діяльності': 'Activity areas',
     'Про нас': 'About us',
     'Місцева демократія': 'Local democracy',
@@ -432,12 +593,9 @@ const HEADINGS_EN = {
     'Стани інтерактивних елементів': 'Interactive element states',
 };
 
-const HOME_HERO_EN = {
-    '.hero-slide__org': 'NGO “Association for Community Self-Organization Assistance”',
-    '.hero-slide__title': 'Strong communities — <span>the foundation of a democratic Ukraine</span>',
-    '.hero-slide__lead p': 'We promote democracy and capable communities through residents’ self-organization and meaningful civic participation in local affairs.',
-    '.hero-slide__actions .btn-primary': 'Learn more',
-    '.hero-slide__actions .btn-outline': 'Analytics',
+const HOME_PAGE_EN = {
+  h1: 'Strong communities — the foundation of a democratic Ukraine',
+  lead: 'We promote democracy and capable communities through residents’ self-organization and meaningful civic participation<br>in local affairs.',
 };
 
 function initMenuLanguage() {
@@ -462,13 +620,13 @@ function initMenuLanguage() {
         .filter((el) => HEADINGS_EN[el.textContent.trim()]);
     headings.forEach((el) => { el.dataset.labelUk = el.textContent.trim(); });
 
-    const firstSlide = document.querySelector('[data-hero-slide]');
-    const heroParts = firstSlide
-        ? Object.entries(HOME_HERO_EN)
-            .map(([selector, html]) => ({ el: firstSlide.querySelector(selector), html }))
-            .filter((part) => part.el)
-        : [];
-    heroParts.forEach((part) => { part.uk = part.el.innerHTML; });
+    const homeHead = document.querySelector('.page-head--home');
+    const homeH1 = homeHead ? homeHead.querySelector('h1') : null;
+    const homeLead = homeHead ? homeHead.querySelector('.page-head__lead') : null;
+    var homeUk = null;
+    if (homeH1 && homeLead) {
+        homeUk = { h1: homeH1.innerHTML, lead: homeLead.innerHTML };
+    }
 
     function apply(lang) {
         links.forEach((a) => {
@@ -484,9 +642,15 @@ function initMenuLanguage() {
         headings.forEach((el) => {
             el.textContent = lang === 'en' ? HEADINGS_EN[el.dataset.labelUk] : el.dataset.labelUk;
         });
-        heroParts.forEach((part) => {
-            part.el.innerHTML = lang === 'en' ? part.html : part.uk;
-        });
+        if (homeUk && homeH1 && homeLead) {
+            if (lang === 'en') {
+                homeH1.textContent = HOME_PAGE_EN.h1;
+                homeLead.innerHTML = HOME_PAGE_EN.lead;
+            } else {
+                homeH1.innerHTML = homeUk.h1;
+                homeLead.innerHTML = homeUk.lead;
+            }
+        }
         switches.forEach((s) => s.classList.toggle('is-active', s.getAttribute('hreflang') === (lang === 'en' ? 'en' : 'uk')));
         localStorage.setItem('acso-menu-lang', lang);
     }
@@ -503,8 +667,8 @@ function initMenuLanguage() {
 initMenuLanguage();
 
 function initAboutNav() {
-    var onAbout = new URLSearchParams(location.search).get('nav') === 'home';
-    var link = document.querySelector('.main-nav a[href="index.html?nav=home"]');
+    var onAbout = location.pathname.endsWith('about.html') || location.pathname.endsWith('/about');
+    var link = document.querySelector('.main-nav a[href="about.html"]');
     if (!link) return;
     if (onAbout) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
