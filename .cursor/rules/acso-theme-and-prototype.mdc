@@ -1,0 +1,34 @@
+---
+description: ACSO theme work — map prototype HTML/CSS to acso-child and Elementor
+globs: prototype/**/*,wp-content/themes/**/*
+alwaysApply: false
+---
+
+# Прототип → WordPress theme
+
+## Референс
+- **`prototype/index.html`** — структура головної (sections: hero, directions grid-3, analytics cards, network RC, footer).
+- **`prototype/style.css`** — canonical styles (`--brand-accent`, `--brand-dark`, `--brand-light`, cards, header, responsive).
+- Assets: `logo_icon_color.png`, `hero_bg.png`, `news_*.png`, `script.js` (mobile menu).
+
+## Перенос у acso-child
+- Enqueue child `style.css`; підключити **e-Ukraine** (не лишати Inter як prod-font — зараз Inter лише fallback у прототипі).
+- `header.php` / `footer.php` — відповідають прототипу; меню — `wp_nav_menu()`.
+- Elementor: відтворити **front page** по секціях прототипу; зберегти template.
+- CPT templates: уніфіковані **картки** як `.news-card`, `.direction-card` у CSS теми.
+
+## Деплой прототипу
+- Після фідбеку — **лише локально** в `prototype/`.
+- **`./scripts/deploy-staging-ui.sh`** — тільки коли замовник/розробник **явно** просить deploy (не після кожної правки).
+
+## Правила верстки
+- Container max ~1200px, radius 8/16px, accent hover `#f05a35`.
+- Mobile-first; burger menu як у `script.js`.
+- Не дублювати великі CSS в Elementor — глобальні класи в child theme.
+
+## Бренд
+- `_docs/brandbook_assets/` — повний brandbook PNG.
+- `design_tokens.css` — альтернативні hex (`#f05c39`, `#161423`); офіційні HEX з brandbook p.17: Orange `#e95029`, Dark Slate Blue `#12162a`, Gray `#d3d4d8`; шрифт e-Ukraine у `prototype/fonts/` (CC BY 4.0).
+
+## Git
+Комітити зміни теми та прототипу; не комітити згенерований Elementor JSON з prod без потреби — краще export у repo як `elementor-templates/` якщо версіонуємо.

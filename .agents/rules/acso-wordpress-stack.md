@@ -1,0 +1,54 @@
+---
+trigger: always_on
+description: "ACSO WordPress stack — Elementor, theme, plugins, Git scope"
+---
+
+# WordPress — технічний стек ACSO
+
+## Платформа
+- Остання стабільна **WordPress**, shared/VPS хостинг (HostSila / cPanel).
+- **Без** Bedrock, Sage, headless, custom React theme.
+- Оновлення ядра/плагінів через адмінку; кастомізація лише через **child theme** (`functions.php`, хуки), не правки файлів плагінів.
+
+## Тема та редактор
+- **Hello Elementor** + **acso-child** (`wp-content/themes/acso-child/`).
+- **Elementor (free)** — головна та статичні landing; Kit/шаблони з бренд-кольорами.
+- **Header/footer, CPT single/archive** — у child theme (CSS/HTML з `prototype/`). Elementor Pro **не закладати**; Theme Builder на весь сайт без Pro не розраховувати.
+- **Потоковий контент** (новини, аналітика, бібліотека, партнери): шаблони теми + звичайний post content, **не** Elementor на кожну статтю.
+- Gutenberg — у ядрі WP; не основний інструмент для marketing-сторінок.
+
+## Контент не в коді
+Тексти, блоки landing, меню, футер, хайлайти головної — редаговані з адмінки (Elementor/меню/опції). У темі — структура, стилі, CPT, шаблони, не hardcoded copy.
+
+## CPT (реєстрація в `functions.php`, без CPT UI якщо типи фіксовані)
+- `analytics` — аналітика
+- `library` — бібліотека (підменю аналітики)
+- `asn_news` — новини Асоціації (назва slug узгодити)
+- `partner_post` — блог партнерів / матеріали РЦ
+- Єдина таксономія **тематичних напрямів** для всіх CPT; **без** фільтрів за роком/типом/форматом (лише тематика + дата на картці).
+- Стандартні **posts (blog)** не використовувати, якщо на legacy блог вимкнено.
+
+## Плагіни — мінімум, переважно free
+| Призначення | Рекомендація |
+|-------------|--------------|
+| Page builder | Elementor |
+| SEO | Yoast або Rank Math (free) |
+| i18n | Polylang (free) — WPML лише якщо замовник оплатить і погодить |
+| Форми | Contact Form 7 + antispam |
+| 301 | Redirection |
+| Ролі РЦ | Members (free) або custom capabilities у темі |
+
+**Не** тягнути legacy-плагіни з prod (старий cache, дублікатори, зайві slider/builder). **Платні** плагіни — тільки з письмовим погодженням (вартість, ліцензія замовнику) згідно ТЗ.
+
+## Git — що комітити
+- `wp-content/themes/acso-child/`
+- `prototype/` (референс)
+- `_docs/`, скрипти ETL/Playwright, `.cursor/rules/`, `.agents/rules/`
+- **Не** комітити: `secrets/acso.env`, `wp-config.php`, `uploads/`, ядро WP, vendor з сервера
+
+## CI/CD (ціль)
+- `develop` → staging, `main` → production (деплой **теми**, SFTP/rsync/GitHub Actions).
+- Плагіни/БД на сервері — окремо від Git.
+
+## Backward compatibility
+Зміни лише через хуки child theme; оновлення Elementor/плагінів не повинні затирати кастомний код.

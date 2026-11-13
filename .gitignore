@@ -1,0 +1,13 @@
+.DS_Store
+_backups/
+secrets/acso.env
+secrets/*.env
+!secrets/*.env.example
+secrets/ssh/
+*.log
+.env
+.env.*
+!.env.example
+wp-config.php
+wp-content/uploads/
+wp-content/cache/

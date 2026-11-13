@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мережа ресурсних центрів — АСН</title>
+    <script>if (localStorage.getItem('acso-menu-lang') === 'en') document.documentElement.classList.add('is-lang-pending');</script>
+    <link rel="preload" href="fonts/e-Ukraine-UltraLight.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" class="logo-link" aria-label="На головну">
+                    <img src="logo_full.png" alt="" class="logo-full logo-full--header" width="200" height="60" aria-hidden="true">
+                </a>
+            </div>
+            <nav class="main-nav" id="main-nav" aria-label="Головне меню">
+                <ul class="main-nav__list">
+                    <li><a href="index.html?nav=home">Головна</a></li>
+                    <li><a href="directions.html">Напрями діяльності</a></li>
+                    <li><a href="democracy.html">Місцева демократія</a></li>
+                    <li class="has-dropdown">
+                        <a href="analytics.html" aria-haspopup="true">Аналітика <span class="nav-caret" aria-hidden="true">▾</span></a>
+                        <ul class="dropdown">
+                            <li><a href="library.html">Бібліотека</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html">Новини Асоціації</a></li>
+                    <li><a href="network.html" aria-current="page">Мережа РЦ</a></li>
+                    <li><a href="partners.html">Блог партнерів</a></li>
+                    </ul>
+            </nav>
+            <div class="header-utils" aria-label="Додаткові дії">
+                <a href="https://www.facebook.com/samoorg" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+                    </svg>
+                </a>
+                <div class="lang-switch lang-switch--text" role="navigation" aria-label="Мова">
+                    <a href="#" class="lang-link is-active" hreflang="uk" lang="uk">Укр</a>
+                    <a href="#" class="lang-link" hreflang="en" lang="en">En</a>
+                </div>
+                <a href="search.html" class="search-icon" aria-label="Пошук">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </a>
+            </div>
+            <button type="button" class="mobile-menu-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head page-head--image" style="--head-image: url('img/head-network.jpg')">
+            <div class="container">
+                <h1>Мережа ресурсних центрів</h1>
+                <p class="page-head__lead">Регіональні ресурсні центри надають експертну,<br>методичну й юридичну підтримку громадян, ОСББ й організацій.</p>
+            </div>
+        </section>
+        <section class="section section--tight">
+            <div class="container">
+                <div class="stats">
+                    <div class="stat"><span class="stat__value">16</span><span class="stat__label">ресурсних центрів</span></div>
+                    <div class="stat"><span class="stat__value">16</span><span class="stat__label">регіонів України</span></div>
+                    <div class="stat"><span class="stat__value">480+</span><span class="stat__label">консультацій на рік</span></div>
+                    <div class="stat"><span class="stat__value">120</span><span class="stat__label">громад-партнерів</span></div>
+                </div>
+                <div class="section-header">
+                    <h2>Карта мережі</h2>
+                </div>
+                <div class="network-layout" data-network>
+                    <div class="ua-map">
+                        <div class="ua-map__canvas">
+                            <svg class="ua-map__svg" viewBox="0 0 1000 666" aria-hidden="true" focusable="false">
+                                <defs>
+                                    <pattern id="ua-dots" width="14" height="14" patternUnits="userSpaceOnUse">
+                                        <circle cx="7" cy="7" r="2.2" fill="rgba(211,212,216,0.45)"></circle>
+                                    </pattern>
+                                </defs>
+                                <polygon class="ua-map__shape" points="603.7,21.8 602.4,24.3 597.2,27.3 597.0,25.3 588.0,31.6 587.8,29.7 585.3,29.6 578.7,31.4 570.5,25.2 560.7,25.2 562.8,31.6 559.2,32.2 560.0,36.9 559.0,39.4 561.6,39.6 547.7,48.1 538.6,47.0 539.3,45.1 535.6,42.5 527.4,43.4 510.9,39.8 503.1,47.7 497.1,42.9 487.4,44.1 486.9,50.0 480.2,54.9 481.0,57.3 479.8,59.0 476.8,58.8 474.7,61.6 473.0,67.0 470.0,69.2 471.8,69.7 470.4,73.6 467.4,74.4 468.5,78.5 464.8,81.9 467.1,83.9 465.8,84.2 466.8,86.7 468.7,86.7 467.8,89.2 470.6,92.6 468.4,94.6 472.2,99.7 471.9,102.8 469.2,104.7 470.2,106.7 467.7,108.7 462.2,107.5 462.3,104.8 459.1,104.6 455.1,100.8 457.2,99.3 456.2,95.7 447.6,89.0 446.9,90.7 439.4,89.5 436.5,92.2 434.6,90.5 432.6,91.2 432.2,93.9 428.0,94.4 425.2,93.1 425.2,88.4 423.7,87.7 416.6,92.9 414.8,91.3 412.5,97.9 408.4,96.8 403.7,99.3 402.6,93.7 399.7,90.2 399.9,84.6 397.8,84.8 395.2,79.8 395.8,78.2 393.0,77.7 386.9,84.3 380.9,83.1 377.9,85.4 374.9,90.9 375.7,93.8 374.3,96.3 373.4,92.5 370.7,94.2 369.2,85.3 367.9,85.0 369.2,84.5 359.2,82.8 353.4,86.6 349.9,80.2 348.4,80.5 348.7,75.7 337.7,84.8 332.3,85.4 334.0,82.4 332.1,83.8 330.4,80.8 327.8,80.5 326.2,83.4 327.2,86.8 322.6,91.9 318.0,88.5 321.1,81.8 312.1,79.4 310.4,79.5 310.2,83.2 308.5,80.4 295.8,81.5 297.2,77.0 294.7,76.7 294.1,68.4 283.2,68.6 281.2,70.6 272.4,68.6 268.2,64.4 257.2,66.4 252.0,60.6 240.9,61.1 232.7,56.2 220.8,54.5 220.6,56.9 205.5,56.5 197.9,55.8 193.3,52.7 177.1,58.9 170.1,57.7 167.4,59.9 162.9,58.5 147.9,60.6 143.8,65.1 144.9,70.3 142.8,73.0 128.4,83.2 122.9,82.5 122.0,81.7 124.5,79.5 117.7,79.0 117.5,76.8 111.9,78.3 108.3,80.3 111.1,83.4 109.8,85.7 112.2,89.4 109.4,90.1 111.4,90.6 110.9,93.9 112.7,94.2 113.5,97.2 110.2,103.3 110.8,106.2 113.8,107.0 115.6,111.9 121.9,116.6 121.1,118.6 127.4,132.6 136.4,138.9 135.2,140.8 128.2,141.4 126.8,144.5 129.9,146.6 130.0,150.2 132.9,150.8 133.4,164.0 129.0,174.2 117.4,175.3 95.4,195.4 67.0,230.6 59.1,242.9 64.3,257.7 62.6,271.0 64.3,270.3 72.0,277.1 70.3,279.1 71.7,283.6 69.3,284.0 65.1,280.1 60.9,281.1 56.6,276.9 54.8,277.3 53.9,283.6 50.7,284.8 45.9,294.4 43.6,308.6 34.3,317.0 32.7,329.3 39.3,330.1 38.0,331.8 42.0,334.5 45.5,343.8 51.6,342.8 55.1,346.7 56.1,353.6 60.5,354.9 68.0,352.8 71.1,357.7 69.0,363.5 72.0,365.5 74.5,364.7 73.6,360.5 78.3,362.8 81.7,361.6 83.6,354.9 86.5,352.7 87.0,354.5 90.9,354.2 94.4,360.3 103.0,364.5 104.7,360.5 118.7,363.3 122.2,367.2 129.6,364.6 140.3,369.9 146.8,368.7 151.5,364.4 158.4,364.2 161.1,365.7 165.3,374.4 171.6,376.0 174.6,383.4 182.5,383.2 186.7,380.8 192.7,370.2 196.4,368.6 241.9,362.3 243.2,357.8 249.7,349.8 249.6,347.6 264.3,343.4 264.2,340.6 268.2,336.5 267.5,334.3 274.2,339.3 274.7,335.3 271.6,334.3 269.8,330.0 277.2,329.2 280.1,333.7 283.4,334.2 283.9,332.4 286.3,332.8 284.6,329.1 288.2,328.2 291.1,333.0 293.8,331.4 298.7,333.2 300.4,327.5 306.9,330.1 308.0,327.0 313.8,323.7 316.6,327.3 322.7,326.4 329.1,330.5 330.1,334.1 333.8,336.8 339.8,337.7 340.0,343.7 343.0,341.5 345.1,342.3 345.2,345.6 346.4,346.0 353.5,342.7 354.6,343.9 354.1,347.4 351.2,350.9 357.9,348.4 357.3,352.5 359.5,356.3 361.5,356.9 361.7,350.2 365.4,347.7 371.1,352.3 378.8,352.0 379.8,353.9 378.7,359.3 382.1,361.1 381.0,361.8 383.3,365.1 385.2,363.7 390.4,366.5 391.7,363.6 396.2,362.5 397.6,370.9 401.8,370.5 397.3,375.9 401.5,377.3 397.8,383.8 399.1,386.7 398.0,389.7 399.2,389.8 396.6,395.3 393.3,396.6 394.9,400.3 396.8,399.7 395.5,404.4 396.9,403.5 397.2,406.6 399.6,403.8 399.7,407.5 403.5,404.9 404.6,410.7 407.4,410.2 407.7,416.3 409.3,417.0 412.3,415.8 412.5,412.1 416.8,411.0 418.1,419.8 415.7,420.2 417.2,429.2 412.7,429.7 414.7,433.8 418.8,432.0 419.7,436.1 418.3,436.5 417.9,442.5 416.1,443.0 420.1,443.4 420.8,446.1 424.2,445.1 425.9,450.4 432.7,448.7 434.0,453.5 436.3,452.2 437.9,453.9 435.8,454.9 437.3,464.1 435.8,467.9 436.0,474.1 432.4,475.0 435.7,479.1 438.1,477.9 440.2,483.1 447.2,485.3 443.5,487.8 435.7,486.3 433.0,490.1 428.9,487.6 429.8,486.8 425.7,480.9 425.1,483.6 421.3,483.6 422.1,489.4 418.4,489.9 416.0,485.0 412.0,483.3 413.3,481.9 410.2,478.9 407.1,482.6 407.5,484.4 405.3,478.3 403.1,481.4 403.7,485.3 399.7,488.3 397.8,487.4 399.8,485.0 398.6,481.4 400.5,479.7 399.3,474.0 395.5,475.2 395.6,477.4 386.2,479.5 388.4,481.4 383.7,481.8 387.2,492.9 384.6,497.2 390.6,502.3 384.7,510.2 387.5,513.7 386.1,517.2 375.7,519.8 374.6,523.2 376.0,530.5 371.4,531.7 372.1,534.7 365.4,535.3 365.7,538.6 362.4,537.9 360.2,542.2 362.1,543.6 363.6,550.1 360.9,550.9 362.1,556.4 357.6,557.4 357.6,554.5 351.3,552.8 346.2,558.8 349.6,560.2 353.7,570.5 365.6,576.0 372.0,577.9 376.6,576.6 374.4,573.2 376.7,572.5 375.9,570.1 377.4,569.2 384.9,573.5 385.7,569.3 397.9,562.4 409.1,560.9 417.6,565.2 420.8,569.1 422.8,579.9 425.8,579.5 428.1,575.9 429.2,568.8 429.1,558.6 426.1,555.9 422.1,556.4 422.7,554.1 441.7,537.8 461.7,515.4 477.6,491.1 480.3,477.7 500.6,471.4 509.1,471.7 516.5,473.8 528.4,488.6 531.6,487.6 528.5,481.1 541.7,483.9 543.1,486.4 540.3,488.9 529.7,491.0 528.2,493.9 529.8,497.2 537.9,497.6 549.5,504.1 527.7,498.9 525.5,495.8 522.1,495.3 518.4,486.9 516.5,487.3 515.3,492.9 519.7,498.8 528.7,502.6 590.5,517.6 600.0,516.3 578.5,511.2 602.0,509.2 602.4,511.7 611.4,512.6 614.6,516.3 621.7,516.0 621.6,513.3 623.6,513.7 625.0,523.7 606.4,535.2 603.6,531.1 601.6,531.6 600.2,537.2 566.0,559.8 565.4,568.4 576.7,572.0 580.9,568.4 587.8,568.7 607.2,585.7 610.5,582.6 617.7,584.4 622.7,591.4 624.1,603.9 620.6,610.1 621.4,620.2 618.0,624.3 611.5,626.2 615.9,633.2 624.4,637.3 624.4,640.1 629.7,644.2 642.1,644.1 652.1,641.2 654.3,636.9 662.4,632.3 670.8,618.9 679.2,613.3 694.6,609.8 700.6,612.7 712.9,599.7 718.6,600.0 717.8,596.8 719.6,596.2 719.7,593.3 718.2,591.5 720.7,588.8 728.0,587.6 735.8,592.3 737.9,596.8 769.8,592.1 773.9,588.2 771.9,584.1 772.9,574.2 774.9,569.9 781.9,568.4 783.0,565.1 781.9,562.1 766.3,555.3 751.0,559.7 749.8,564.0 745.8,563.9 742.0,556.8 737.9,557.6 732.8,562.7 732.7,567.3 724.3,571.7 715.1,563.7 698.3,537.1 691.7,518.9 689.5,505.5 691.9,501.6 700.3,498.7 708.1,490.4 708.3,494.2 704.3,502.5 697.3,505.0 694.4,510.8 695.5,513.7 703.6,511.1 708.4,506.0 719.2,487.3 740.9,470.8 748.4,467.9 759.5,468.9 752.1,481.0 757.8,480.5 767.7,463.6 779.3,459.8 786.3,458.7 789.1,462.8 785.4,468.3 787.1,470.1 799.2,452.7 813.4,445.9 815.2,451.5 830.1,434.7 856.1,432.5 856.9,434.9 855.8,438.8 860.0,436.8 863.8,430.9 864.1,421.9 869.1,419.1 869.3,415.6 863.4,416.0 864.9,411.1 867.5,409.1 866.6,397.6 868.1,397.2 868.1,394.6 870.0,394.9 870.2,392.0 875.9,391.8 875.6,389.9 884.0,389.6 886.4,387.6 886.4,385.4 892.0,386.4 892.8,376.4 894.7,376.1 895.9,372.6 907.8,372.1 909.3,374.0 923.7,372.1 925.0,375.3 926.7,372.8 931.0,375.4 941.9,375.3 944.7,371.9 946.0,365.1 943.9,358.9 949.4,358.5 946.9,356.9 948.7,355.5 950.6,348.3 952.1,347.9 952.4,344.3 955.8,344.6 956.4,342.1 954.8,337.2 951.0,340.9 950.3,338.8 947.0,337.8 947.1,336.0 952.5,334.5 949.7,327.0 947.2,325.3 947.4,322.8 948.6,322.9 947.8,317.8 937.9,314.4 941.1,308.7 941.3,302.8 943.4,302.3 945.1,296.4 954.1,300.1 959.4,294.3 956.9,290.8 954.9,294.5 946.9,291.6 946.4,293.1 942.5,285.5 938.2,284.0 939.5,280.1 952.2,279.8 951.9,277.9 956.6,270.5 967.3,263.9 964.9,262.0 965.2,257.2 956.9,248.8 957.4,243.8 964.1,240.2 962.3,236.2 945.5,240.8 937.6,236.1 934.2,228.4 935.1,227.3 926.4,225.2 923.0,226.6 916.5,224.0 913.7,214.7 907.3,220.3 900.8,221.6 898.1,219.3 899.1,217.1 888.8,212.3 887.3,209.4 889.7,207.3 887.6,205.8 885.7,210.1 878.8,209.4 875.5,206.5 873.1,207.6 868.1,199.1 861.3,200.1 863.4,208.3 853.4,213.8 853.7,211.0 845.9,201.6 838.9,199.9 832.7,191.4 832.9,181.9 830.1,182.3 824.9,177.6 824.4,173.0 826.0,170.7 816.9,172.6 814.9,175.9 806.7,179.0 796.6,179.3 784.3,186.0 782.4,189.2 777.8,187.1 779.0,184.6 771.1,180.6 765.0,183.9 763.0,181.3 763.4,179.5 756.2,172.2 742.9,172.3 739.7,173.1 735.2,178.9 729.0,178.9 726.8,170.8 716.5,161.3 719.3,159.2 717.3,155.0 722.0,155.1 722.7,153.2 721.3,152.5 722.0,145.6 718.8,143.6 718.9,140.0 716.6,138.5 717.5,135.5 714.6,133.4 713.5,127.6 717.6,126.9 718.2,124.6 713.6,122.3 707.7,124.8 705.0,121.9 706.1,120.7 703.3,115.2 704.4,111.5 699.3,112.6 695.2,110.8 686.5,115.0 681.0,114.0 679.5,110.1 677.0,108.9 670.8,109.9 665.6,107.3 661.6,110.3 657.2,107.2 662.7,100.1 657.0,95.2 660.7,88.3 654.2,78.9 649.9,76.7 667.7,71.8 667.1,64.4 658.3,59.9 658.5,57.2 655.2,54.8 655.6,53.0 652.2,53.4 652.4,50.3 650.9,50.3 649.1,45.7 651.5,40.2 642.0,28.6 637.9,26.4 636.3,22.7 622.3,25.8 622.6,27.5 619.4,26.4 620.7,23.6 610.9,23.6"></polygon>
+                            </svg><button type="button" class="map-marker" style="left:46.58%;top:25.74%" data-center-marker="kyiv" aria-label="Ресурсний центр · Київ"><span class="map-marker__label">Київ</span></button><button type="button" class="map-marker" style="left:69.94%;top:48.92%" data-center-marker="dnipro" aria-label="Ресурсний центр · Дніпро"><span class="map-marker__label">Дніпро</span></button><button type="button" class="map-marker" style="left:83.03%;top:45.71%" data-center-marker="donetsk" aria-label="Ресурсний центр · Донеччина"><span class="map-marker__label">Донеччина</span></button><button type="button" class="map-marker" style="left:87.01%;top:39.40%" data-center-marker="luhansk" aria-label="Ресурсний центр · Луганщина"><span class="map-marker__label">Луганщина</span></button><button type="button" class="map-marker" style="left:19.82%;top:22.27%" data-center-marker="lutsk" aria-label="Ресурсний центр · Луцьк"><span class="map-marker__label">Луцьк</span></button><button type="button" class="map-marker" style="left:13.05%;top:32.87%" data-center-marker="lviv" aria-label="Ресурсний центр · Львів"><span class="map-marker__label">Львів</span></button><button type="button" class="map-marker" style="left:54.18%;top:66.32%" data-center-marker="mykolaiv" aria-label="Ресурсний центр · Миколаїв"><span class="map-marker__label">Миколаїв</span></button><button type="button" class="map-marker" style="left:24.52%;top:23.75%" data-center-marker="rivne" aria-label="Ресурсний центр · Рівне"><span class="map-marker__label">Рівне</span></button><button type="button" class="map-marker" style="left:57.40%;top:70.29%" data-center-marker="kherson" aria-label="Ресурсний центр · Херсон"><span class="map-marker__label">Херсон</span></button><button type="button" class="map-marker is-active" style="left:35.97%;top:39.95%" data-center-marker="vinnytsia" aria-label="Ресурсний центр · Вінниця"><span class="map-marker__label">Вінниця</span></button><button type="button" class="map-marker" style="left:22.89%;top:50.94%" data-center-marker="chernivtsi" aria-label="Ресурсний центр · Чернівці"><span class="map-marker__label">Чернівці</span></button><button type="button" class="map-marker" style="left:50.54%;top:13.50%" data-center-marker="chernihiv" aria-label="Ресурсний центр · Чернігів"><span class="map-marker__label">Чернігів</span></button><button type="button" class="map-marker" style="left:6.28%;top:49.21%" data-center-marker="zakarpattia" aria-label="Ресурсний центр · Закарпаття"><span class="map-marker__label">Закарпаття</span></button><button type="button" class="map-marker" style="left:55.57%;top:48.42%" data-center-marker="kropyvnytskyi" aria-label="Ресурсний центр · Кропивницький"><span class="map-marker__label">Кропивницький</span></button><button type="button" class="map-marker" style="left:68.66%;top:20.39%" data-center-marker="sumy" aria-label="Ресурсний центр · Суми"><span class="map-marker__label">Суми</span></button><button type="button" class="map-marker" style="left:70.43%;top:56.23%" data-center-marker="zaporizhzhia" aria-label="Ресурсний центр · Запоріжжя"><span class="map-marker__label">Запоріжжя</span></button>
+                        </div>
+                        <p class="ua-map__legend">Ресурсний центр — натисніть, щоб побачити інформацію</p>
+                    </div>
+                    <div class="center-panel" aria-live="polite">
+                        <span class="topic">Ресурсний центр</span>
+                        <h3 data-center-name>Вінниця</h3>
+                        <p class="center-panel__region" data-center-region>Вінницька область</p>
+                        <p>Консультації для ОСН та громадських організацій, супровід бюджету участі, навчання для депутатів місцевих рад.</p>
+                        <a href="center.html" class="btn btn-primary btn-sm" data-center-link>Сторінка центру &rarr;</a>
+                        <ul class="center-list" aria-label="Перелік ресурсних центрів"><li><button type="button" data-center-item="kyiv" data-name="Київ" data-region="м. Київ">Київ<small>м. Київ</small></button></li><li><button type="button" data-center-item="dnipro" data-name="Дніпро" data-region="Дніпропетровська область">Дніпро<small>Дніпропетровська область</small></button></li><li><button type="button" data-center-item="donetsk" data-name="Донеччина" data-region="Донецька область, підконтрольна територія">Донеччина<small>Донецька область, підконтрольна територія</small></button></li><li><button type="button" data-center-item="luhansk" data-name="Луганщина" data-region="Луганська область, підконтрольна територія">Луганщина<small>Луганська область, підконтрольна територія</small></button></li><li><button type="button" data-center-item="lutsk" data-name="Луцьк" data-region="Волинська область">Луцьк<small>Волинська область</small></button></li><li><button type="button" data-center-item="lviv" data-name="Львів" data-region="Львівська область">Львів<small>Львівська область</small></button></li><li><button type="button" data-center-item="mykolaiv" data-name="Миколаїв" data-region="Миколаївська область">Миколаїв<small>Миколаївська область</small></button></li><li><button type="button" data-center-item="rivne" data-name="Рівне" data-region="Рівненська область">Рівне<small>Рівненська область</small></button></li><li><button type="button" data-center-item="kherson" data-name="Херсон" data-region="Херсонська область">Херсон<small>Херсонська область</small></button></li><li><button type="button" data-center-item="vinnytsia" data-name="Вінниця" data-region="Вінницька область" class="is-active">Вінниця<small>Вінницька область</small></button></li><li><button type="button" data-center-item="chernivtsi" data-name="Чернівці" data-region="Чернівецька область">Чернівці<small>Чернівецька область</small></button></li><li><button type="button" data-center-item="chernihiv" data-name="Чернігів" data-region="Чернігівська область">Чернігів<small>Чернігівська область</small></button></li><li><button type="button" data-center-item="zakarpattia" data-name="Закарпаття" data-region="Закарпатська область">Закарпаття<small>Закарпатська область</small></button></li><li><button type="button" data-center-item="kropyvnytskyi" data-name="Кропивницький" data-region="Кіровоградська область">Кропивницький<small>Кіровоградська область</small></button></li><li><button type="button" data-center-item="sumy" data-name="Суми" data-region="Сумська область">Суми<small>Сумська область</small></button></li><li><button type="button" data-center-item="zaporizhzhia" data-name="Запоріжжя" data-region="Запорізька область">Запоріжжя<small>Запорізька область</small></button></li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Новини партнерів</h2>
+                    <a href="partners.html" class="link-arrow">Всі новини партнерів &rarr;</a>
+                </div>
+                <div class="toolbar-row">
+                    <div class="form-field">
+                        <label class="form-label" for="center-filter">Ресурсний центр</label>
+                        <select class="select" id="center-filter" data-center-filter>
+                            <option value="all">Усі ресурсні центри</option><option value="kyiv">Київ</option><option value="dnipro">Дніпро</option><option value="donetsk">Донеччина</option><option value="luhansk">Луганщина</option><option value="lutsk">Луцьк</option><option value="lviv">Львів</option><option value="mykolaiv">Миколаїв</option><option value="rivne">Рівне</option><option value="kherson">Херсон</option><option value="vinnytsia">Вінниця</option><option value="chernivtsi">Чернівці</option><option value="chernihiv">Чернігів</option><option value="zakarpattia">Закарпаття</option><option value="kropyvnytskyi">Кропивницький</option><option value="sumy">Суми</option><option value="zaporizhzhia">Запоріжжя</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cards-grid" data-filter-list><article class="post-card" data-topic="democracy" data-center="vinnytsia" data-search="у вінниці презентували результати бюджету участі мешканці обрали 14 проєктів благоустрою та освіти.">
+                        <div class="post-card__media"><img src="news_2.png" alt="" loading="lazy"></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Місцева демократія</span>
+                                <time class="post-card__date">18 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">У Вінниці презентували результати бюджету участі</a></h3>
+                            <p class="post-card__excerpt">Мешканці обрали 14 проєктів благоустрою та освіти.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Вінниця</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="self-government" data-center="lviv" data-search="львівський ресурсний центр допоміг створити три нові осн консультації щодо статутів і реєстрації для мешканців кварталів.">
+                        <div class="post-card__media"><div class="cover" aria-hidden="true"><span class="cover__label">Самоврядування</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Самоврядування</span>
+                                <time class="post-card__date">14 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Львівський ресурсний центр допоміг створити три нові ОСН</a></h3>
+                            <p class="post-card__excerpt">Консультації щодо статутів і реєстрації для мешканців кварталів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Львів</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="security" data-center="sumy" data-search="суми: тренінг з безпеки для активних мешканців практичні навички першої допомоги та організації укриттів.">
+                        <div class="post-card__media"><div class="cover cover--gray" aria-hidden="true"><span class="cover__label">Безпека та стійкість громад</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Безпека та стійкість громад</span>
+                                <time class="post-card__date">11 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Суми: тренінг з безпеки для активних мешканців</a></h3>
+                            <p class="post-card__excerpt">Практичні навички першої допомоги та організації укриттів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Суми</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="recovery" data-center="chernihiv" data-search="чернігівщина: громадські обговорення плану відновлення понад 200 мешканців долучилися до обговорення пріоритетів.">
+                        <div class="post-card__media"><img src="news_1.png" alt="" loading="lazy"></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Відновлення та трансформація громад</span>
+                                <time class="post-card__date">6 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Чернігівщина: громадські обговорення плану відновлення</a></h3>
+                            <p class="post-card__excerpt">Понад 200 мешканців долучилися до обговорення пріоритетів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Чернігів</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="legislation" data-center="kherson" data-search="херсон: консультації щодо змін до статуту громади ресурсний центр підготував пропозиції до робочої групи.">
+                        <div class="post-card__media"><div class="cover cover--light" aria-hidden="true"><span class="cover__label">Законодавство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Законодавство</span>
+                                <time class="post-card__date">29 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Херсон: консультації щодо змін до статуту громади</a></h3>
+                            <p class="post-card__excerpt">Ресурсний центр підготував пропозиції до робочої групи.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Херсон</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="civil-society" data-center="vinnytsia" data-search="вінниця: форум громадських ініціатив ініціативи громади представили свої проєкти партнерам.">
+                        <div class="post-card__media"><div class="cover cover--accent" aria-hidden="true"><span class="cover__label">Громадянське суспільство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Громадянське суспільство</span>
+                                <time class="post-card__date">22 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Вінниця: форум громадських ініціатив</a></h3>
+                            <p class="post-card__excerpt">Ініціативи громади представили свої проєкти партнерам.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Вінниця</strong></p>
+                        </div>
+                    </article></div>
+                <div class="empty-state" data-empty hidden>
+                    <h3>Нічого не знайдено</h3>
+                    <p>Спробуйте інший запит або оберіть «Усі напрями».</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo footer-logo">
+                        <a href="index.html"><img src="logo_full_white.png" alt="АСН" class="logo-full logo-full--footer" width="200" height="56"></a>
+                    </div>
+                    <p>ВГО «Асоціація сприяння самоорганізації населення» — громадська організація, що об'єднує експертів заради розбудови сильного самоврядування в Україні.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/samoorg" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>
+                    </div>
+                </div>
+                <nav class="footer-links" aria-label="Карта сайту">
+                    <h4>Карта сайту</h4>
+                    <ul class="footer-sitemap">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="directions.html">Напрями діяльності</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="democracy.html">Місцева демократія</a></li>
+                        <li><a href="analytics.html">Аналітика</a></li>
+                        <li><a href="library.html">Бібліотека</a></li>
+                        <li><a href="news.html">Новини Асоціації</a></li>
+                        <li><a href="network.html">Мережа ресурсних центрів</a></li>
+                        <li><a href="partners.html">Блог партнерів</a></li>
+                        <li><a href="search.html">Пошук</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-links">
+                    <h4>Контакти</h4>
+                    <p>м. Київ, Україна<br>вул. Прикладна, 10</p>
+                    <p><a href="mailto:info@samoorg.com.ua">info@samoorg.com.ua</a></p>
+                    <p><a href="tel:+380440000000">+38 (044) 000-00-00</a></p>
+                    <p><a href="about.html#contacts">Написати нам &rarr;</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="disclaimer">
+                    <p>Цей сайт створено в межах проєкту, що підтримується Міжнародним фондом «Відродження» та Фондом Східна Європа. Зміст матеріалів є виключною відповідальністю ВГО АСН.</p>
+                </div>
+                <div class="copyright">
+                    &copy; 2026 ВГО «Асоціація сприяння самоорганізації населення». Всі права захищено.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

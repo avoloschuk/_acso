@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналітика — АСН</title>
+    <script>if (localStorage.getItem('acso-menu-lang') === 'en') document.documentElement.classList.add('is-lang-pending');</script>
+    <link rel="preload" href="fonts/e-Ukraine-UltraLight.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" class="logo-link" aria-label="На головну">
+                    <img src="logo_full.png" alt="" class="logo-full logo-full--header" width="200" height="60" aria-hidden="true">
+                </a>
+            </div>
+            <nav class="main-nav" id="main-nav" aria-label="Головне меню">
+                <ul class="main-nav__list">
+                    <li><a href="index.html?nav=home">Головна</a></li>
+                    <li><a href="directions.html">Напрями діяльності</a></li>
+                    <li><a href="democracy.html">Місцева демократія</a></li>
+                    <li class="has-dropdown">
+                        <a href="analytics.html" aria-current="page" aria-haspopup="true">Аналітика <span class="nav-caret" aria-hidden="true">▾</span></a>
+                        <ul class="dropdown">
+                            <li><a href="library.html">Бібліотека</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html">Новини Асоціації</a></li>
+                    <li><a href="network.html">Мережа РЦ</a></li>
+                    <li><a href="partners.html">Блог партнерів</a></li>
+                    </ul>
+            </nav>
+            <div class="header-utils" aria-label="Додаткові дії">
+                <a href="https://www.facebook.com/samoorg" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+                    </svg>
+                </a>
+                <div class="lang-switch lang-switch--text" role="navigation" aria-label="Мова">
+                    <a href="#" class="lang-link is-active" hreflang="uk" lang="uk">Укр</a>
+                    <a href="#" class="lang-link" hreflang="en" lang="en">En</a>
+                </div>
+                <a href="search.html" class="search-icon" aria-label="Пошук">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </a>
+            </div>
+            <button type="button" class="mobile-menu-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head page-head--image" style="--head-image: url('img/head-analytics.jpg')">
+            <div class="container">
+                <h1>Аналітика</h1>
+                <p class="page-head__lead">Дослідження, аналітичні записки, моніторинги, огляди законодавства та експертні статті Асоціації.</p>
+                
+            </div>
+        </section>        <section class="section section--tight">
+            <div class="container">
+                <div class="archive-toolbar">
+                    <form class="search-field" role="search" data-archive-search>
+                        <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.5" y2="16.5"></line></svg>
+                        <label class="visually-hidden" for="archive-q">Пошук</label>
+                        <input type="search" id="archive-q" name="q" placeholder="Пошук в аналітиці…" autocomplete="off">
+                    </form>
+                    <div class="chips chips--scroll" role="group" aria-label="Тематичний напрям">
+                        <span class="chips__label">Тематичний напрям:</span>
+                        <button type="button" class="chip" aria-pressed="true" data-topic-chip="all">Усі напрями</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="democracy">Місцева демократія</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="civil-society">Громадянське суспільство</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="self-government">Самоврядування</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="legislation">Законодавство</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="recovery">Відновлення та трансформація громад</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="security">Безпека та стійкість громад</button>
+                    </div>
+                </div>
+                
+                <div class="archive-meta"><span data-count-text>Показано матеріалів: <strong data-count></strong></span></div>
+                <div class="cards-grid" data-filter-list>
+                    <article class="post-card" data-topic="self-government" data-search="оцінка спроможності територіальних громад під час воєнного стану аналітична записка щодо ключових викликів місцевого самоврядування у прифронтових регіонах.">
+                        <div class="post-card__media"><img src="news_1.png" alt="" loading="lazy"></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Самоврядування</span>
+                                <time class="post-card__date">12 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Оцінка спроможності територіальних громад під час воєнного стану</a></h3>
+                            <p class="post-card__excerpt">Аналітична записка щодо ключових викликів місцевого самоврядування у прифронтових регіонах.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="democracy" data-search="впровадження інструментів електронної демократії в умовах обмеженого доступу до інформації результати всеукраїнського дослідження прозорості ухвалення рішень на місцях.">
+                        <div class="post-card__media"><img src="news_2.png" alt="" loading="lazy"></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Місцева демократія</span>
+                                <time class="post-card__date">5 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Впровадження інструментів електронної демократії в умовах обмеженого доступу до інформації</a></h3>
+                            <p class="post-card__excerpt">Результати всеукраїнського дослідження прозорості ухвалення рішень на місцях.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="legislation" data-search="статути територіальних громад: моніторинг 2025 року як громади закріплюють інструменти участі у своїх статутах і що варто оновити.">
+                        <div class="post-card__media"><div class="cover" aria-hidden="true"><span class="cover__label">Законодавство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Законодавство</span>
+                                <time class="post-card__date">22 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Статути територіальних громад: моніторинг 2025 року</a></h3>
+                            <p class="post-card__excerpt">Як громади закріплюють інструменти участі у своїх статутах і що варто оновити.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="self-government" data-search="органи самоорганізації населення як партнери місцевої влади огляд моделей співпраці осн та органів місцевого самоврядування у 12 громадах.">
+                        <div class="post-card__media"><div class="cover cover--light" aria-hidden="true"><span class="cover__label">Самоврядування</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Самоврядування</span>
+                                <time class="post-card__date">10 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Органи самоорганізації населення як партнери місцевої влади</a></h3>
+                            <p class="post-card__excerpt">Огляд моделей співпраці ОСН та органів місцевого самоврядування у 12 громадах.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="democracy" data-search="бюджет участі в громадах: що змінилося за три роки порівняльний аналіз правил, обсягів фінансування та залученості мешканців.">
+                        <div class="post-card__media"><div class="cover cover--accent" aria-hidden="true"><span class="cover__label">Місцева демократія</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Місцева демократія</span>
+                                <time class="post-card__date">28 березня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Бюджет участі в громадах: що змінилося за три роки</a></h3>
+                            <p class="post-card__excerpt">Порівняльний аналіз правил, обсягів фінансування та залученості мешканців.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="security" data-search="безпекові ради громад: практики координації як громади організовують взаємодію влади, служб і мешканців у кризових умовах.">
+                        <div class="post-card__media"><div class="cover" aria-hidden="true"><span class="cover__label">Безпека та стійкість громад</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Безпека та стійкість громад</span>
+                                <time class="post-card__date">14 березня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Безпекові ради громад: практики координації</a></h3>
+                            <p class="post-card__excerpt">Як громади організовують взаємодію влади, служб і мешканців у кризових умовах.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="recovery" data-search="відновлення деокупованих громад: роль мешканців у плануванні рекомендації щодо залучення жителів до планування відбудови.">
+                        <div class="post-card__media"><div class="cover cover--gray" aria-hidden="true"><span class="cover__label">Відновлення та трансформація громад</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Відновлення та трансформація громад</span>
+                                <time class="post-card__date">2 березня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Відновлення деокупованих громад: роль мешканців у плануванні</a></h3>
+                            <p class="post-card__excerpt">Рекомендації щодо залучення жителів до планування відбудови.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="legislation" data-search="громадські слухання: правове регулювання та практика аналіз положень про громадські слухання та типових проблем їх проведення.">
+                        <div class="post-card__media"><div class="cover cover--light" aria-hidden="true"><span class="cover__label">Законодавство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Законодавство</span>
+                                <time class="post-card__date">18 лютого 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Громадські слухання: правове регулювання та практика</a></h3>
+                            <p class="post-card__excerpt">Аналіз положень про громадські слухання та типових проблем їх проведення.</p>
+                            
+                        </div>
+                    </article><article class="post-card" data-topic="civil-society" data-search="громадські організації у прифронтових громадах дослідження потреб та ресурсів громадських організацій і волонтерських ініціатив.">
+                        <div class="post-card__media"><div class="cover" aria-hidden="true"><span class="cover__label">Громадянське суспільство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Громадянське суспільство</span>
+                                <time class="post-card__date">5 лютого 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="analytics-single.html">Громадські організації у прифронтових громадах</a></h3>
+                            <p class="post-card__excerpt">Дослідження потреб та ресурсів громадських організацій і волонтерських ініціатив.</p>
+                            
+                        </div>
+                    </article>
+                </div>
+                <div class="empty-state" data-empty hidden>
+                    <h3>Нічого не знайдено</h3>
+                    <p>Спробуйте інший запит або оберіть «Усі напрями».</p>
+                </div>
+                <nav aria-label="Сторінки">
+                    <ul class="pagination">
+                        <li><span class="is-disabled" aria-hidden="true">&larr;</span></li>
+                        <li><a href="#" aria-current="page">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><span class="is-gap">…</span></li>
+                        <li><a href="#">12</a></li>
+                        <li><a href="#" aria-label="Наступна сторінка">&rarr;</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo footer-logo">
+                        <a href="index.html"><img src="logo_full_white.png" alt="АСН" class="logo-full logo-full--footer" width="200" height="56"></a>
+                    </div>
+                    <p>ВГО «Асоціація сприяння самоорганізації населення» — громадська організація, що об'єднує експертів заради розбудови сильного самоврядування в Україні.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/samoorg" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>
+                    </div>
+                </div>
+                <nav class="footer-links" aria-label="Карта сайту">
+                    <h4>Карта сайту</h4>
+                    <ul class="footer-sitemap">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="directions.html">Напрями діяльності</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="democracy.html">Місцева демократія</a></li>
+                        <li><a href="analytics.html">Аналітика</a></li>
+                        <li><a href="library.html">Бібліотека</a></li>
+                        <li><a href="news.html">Новини Асоціації</a></li>
+                        <li><a href="network.html">Мережа ресурсних центрів</a></li>
+                        <li><a href="partners.html">Блог партнерів</a></li>
+                        <li><a href="search.html">Пошук</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-links">
+                    <h4>Контакти</h4>
+                    <p>м. Київ, Україна<br>вул. Прикладна, 10</p>
+                    <p><a href="mailto:info@samoorg.com.ua">info@samoorg.com.ua</a></p>
+                    <p><a href="tel:+380440000000">+38 (044) 000-00-00</a></p>
+                    <p><a href="about.html#contacts">Написати нам &rarr;</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="disclaimer">
+                    <p>Цей сайт створено в межах проєкту, що підтримується Міжнародним фондом «Відродження» та Фондом Східна Європа. Зміст матеріалів є виключною відповідальністю ВГО АСН.</p>
+                </div>
+                <div class="copyright">
+                    &copy; 2026 ВГО «Асоціація сприяння самоорганізації населення». Всі права захищено.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

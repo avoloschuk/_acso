@@ -1,0 +1,35 @@
+---
+description: "cPanel MCP — production is read-only UAPI; writes only on staging scope"
+alwaysApply: true
+---
+
+# cPanel MCP — prod read-only
+
+The **`cpanel-acso`** MCP server uses one cPanel account (`CPANEL_USER`). UAPI does not auto-scope to staging — **the agent must enforce scope**.
+
+## Production (`samoorg.com.ua`, prod `public_html`, prod DB, prod DNS zone for main domain)
+
+**Only read-only MCP tools** — inventory and inspection:
+
+- Allowed patterns: `list`, `get`, `read`, `fetch`, `status`, `stats`, `bandwidth` (read), view configs without save.
+- Examples: list files under prod paths (read-only), get PHP version, list MySQL databases/users (no create/delete), get DNS records, list SSL certs, list cron (do not add/remove).
+
+**Never on production scope** (refuse even if user asks in chat):
+        
+- Any tool that **creates, updates, deletes, saves, installs, sets, adds, removes, modifies, deploys, restores, or writes** files/DB/DNS/SSL/email/cron/domains/PHP.
+- File Manager **save**, **delete**, **chmod**, **move** on prod paths.
+- MySQL **create** / **delete** / **set_privileges** for prod databases.
+- DNS **add** / **delete** / **edit** for `samoorg.com.ua`.
+- **PHP set version** on shared hosting (one PHP per account — see migration rules); do not change without explicit cutover plan + backup.
+
+If a tool might affect prod and scope is unclear → **do not call it**; ask user or use SSH read-only listing instead.
+
+## Staging (`staging.samoorg.com.ua`, `STAGING_DOCROOT` in `secrets/acso.env`)
+
+- **Writes allowed** only for staging subdomain, staging docroot, and **new staging DB** (not prod DB names).
+- Before mutating: confirm path/domain is staging, not `public_html` prod root.
+
+## Shared hosting (Hostpro, skm352)
+
+- **One PHP version per cPanel user** — applies to all sites on the account until host changes it globally.
+- **MySQL/MariaDB** on skm352 is current enough for WordPress 6.x (per host support); create **separate DB** for staging in cPanel.

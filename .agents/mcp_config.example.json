@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cpanel-acso": {
+      "command": "bash",
+      "args": ["./scripts/mcp-cpanel-wrapper.sh"]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/*
+ * ACSO Brand Design Tokens
+ * 
+ * Extracted from Brandbook
+ * Fonts: e-Ukraine (Regular, Medium, Thin)
+ * Heading Scale Ratio: 1.68
+ */
+
+:root {
+  /* Brand Colors */
+  --color-brand-orange: #f05c39; /* Accent Color */
+  --color-brand-dark: #161423;   /* Primary Dark / Text */
+  
+  /* Neutral / Grays */
+  --color-gray-100: #e4e1e8;
+  --color-gray-300: #a6a2aa;
+  --color-gray-500: #9a97a2;
+  --color-gray-700: #5c5764;
+  
+  /* Typography */
+  --font-primary: 'e-Ukraine', sans-serif;
+  --font-weight-thin: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  
+  /* Scaling (1.68 ratio base) */
+  --text-base: 1rem;       /* 16px */
+  --text-h3: 1.68rem;      /* ~27px */
+  --text-h2: 2.82rem;      /* ~45px */
+  --text-h1: 4.74rem;      /* ~76px */
+}

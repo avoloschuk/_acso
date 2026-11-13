@@ -1,0 +1,72 @@
+---
+description: ACSO dev workflow — Git, deploy, hosting split, cutover, WP tooling
+alwaysApply: true
+---
+
+# Development workflow (ACSO)
+
+## Hosting strategy
+
+- **Legacy prod** (`samoorg.com.ua`, account `samoorg`, shared «Потужний»): **PHP 7.3**, WP ~5.3 — **do not change PHP** on this account; **read-only** for automation until cutover.
+- **New stack**: separate **cheap hosting account** (e.g. Hostpro Cloud Site) with **PHP 8.2/8.3**, clean WP, own DB and SSH — **all theme/plugin dev and staging writes** there.
+- **One PHP per cPanel account** on classic shared — no MultiPHP on current plan (`multiphp` unavailable). Different PHP versions = **different accounts**, not subdomain tricks.
+- Optional later: **Multiadmin / Reseller** if many sites under one billing — not required for two environments.
+
+## Git — source of truth (local repo)
+
+**Commit:**
+
+- `wp-content/themes/acso-child/` (when it exists in repo)
+- `prototype/`
+- `_docs/`, `scripts/`, `.cursor/rules/`, `.agents/rules/`
+
+**Do not commit:** `secrets/acso.env`, `wp-config.php`, WP core, `uploads/`, server vendor, `_backups/`.
+
+**Do not** use server as primary Git for application code; deploy **from repo → staging**, not edit-only-on-server.
+
+## What we deploy to the server (SSH only, staging / new account)
+
+| Artifact | Target | Tool |
+|----------|--------|------|
+| Static **prototype** | `…/ui/` on staging docroot (never prod) | `scripts/deploy-staging-ui.sh` (tar/rsync over SSH) |
+| **acso-child** theme | `wp-content/themes/acso-child/` on **new/staging** WP | SSH rsync/tar when theme exists |
+| WP core, plugins, DB | Installed on server (WP admin / Toolkit / host); **not** in Git |
+
+**FTP** — human fallback only; **prefer SSH** for agent and scripts.
+
+## Local machine
+
+- **No full local WordPress** (no Docker WP sandbox required).
+- **UX / layout:** `prototype/` static HTML → deploy to `/ui/` for approval.
+- **Real WP behavior:** test on **remote staging** URL; screenshots/Playwright against staging, not mandatory local WP.
+
+## WordPress tooling (no host MCP)
+
+- **cPanel MCP:** disabled on shared (`apitokens` off) — use **SSH + `uapi`** and cPanel UI.
+- **WP admin:** humans for Elementor, menus, plugins; **prod admin not for agent writes**.
+- **Agent automation on staging:** **REST API** + **Application Password** (`STAGING_WP_*` in `secrets/acso.env`); optional local MCP wrapping REST — **not** host “AI agents”.
+- **WP-CLI:** use `wp` when present (cPanel WP Toolkit on skm352); else `wp-cli.phar` in `~/bin`. Not bundled with WP wizard — check `which wp`.
+
+## Databases
+
+- **One MySQL database per WordPress instance** — never share one DB between old and new site.
+- Prod DB names stay on prod account; new site = **new empty DB** on new account.
+
+## Cutover (blue-green)
+
+1. Build **complete site** on **new account** (PHP 8.x, theme, content migration, 301 table prepared).
+2. Test on **temporary URL** / second domain until sign-off.
+3. Before switch: lower **DNS TTL**, **final content sync** if needed, **backup prod** (files + DB).
+4. **Cutover:** point **DNS** `samoorg.com.ua` to **new hosting IP**; SSL; smoke test; enable **301** (Redirection).
+5. **Old account:** keep **rollback** window (weeks) — do not delete immediately; may become **preprod/archive**, not twin prod.
+6. **Do not** mutate legacy prod for experiments after cutover except agreed rollback.
+
+## Env files
+
+- `secrets/acso.env` — SSH, staging/new-host URLs, DB, `STAGING_WP_*`, cPanel; **never log or commit**.
+- When second account exists: add clearly named vars (e.g. `NEW_HOST_*` or second `STAGING_*` block) — keep **prod vs new** unambiguous for every command.
+
+## Backups
+
+- Full file backup **before cutover** or risky prod work — not required **only** for PHP version reasoning on legacy (PHP does not delete files); **do** backup before DNS switch and before ETL loads.
+- Mac: `_backups/` in project (gitignored); rsync needs **rsync 3.x** + `--iconv` for legacy Cyrillic upload names on Apple rsync 2.6.

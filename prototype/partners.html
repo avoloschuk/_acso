@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог партнерів — АСН</title>
+    <script>if (localStorage.getItem('acso-menu-lang') === 'en') document.documentElement.classList.add('is-lang-pending');</script>
+    <link rel="preload" href="fonts/e-Ukraine-UltraLight.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" class="logo-link" aria-label="На головну">
+                    <img src="logo_full.png" alt="" class="logo-full logo-full--header" width="200" height="60" aria-hidden="true">
+                </a>
+            </div>
+            <nav class="main-nav" id="main-nav" aria-label="Головне меню">
+                <ul class="main-nav__list">
+                    <li><a href="index.html?nav=home">Головна</a></li>
+                    <li><a href="directions.html">Напрями діяльності</a></li>
+                    <li><a href="democracy.html">Місцева демократія</a></li>
+                    <li class="has-dropdown">
+                        <a href="analytics.html" aria-haspopup="true">Аналітика <span class="nav-caret" aria-hidden="true">▾</span></a>
+                        <ul class="dropdown">
+                            <li><a href="library.html">Бібліотека</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html">Новини Асоціації</a></li>
+                    <li><a href="network.html">Мережа РЦ</a></li>
+                    <li><a href="partners.html" aria-current="page">Блог партнерів</a></li>
+                    </ul>
+            </nav>
+            <div class="header-utils" aria-label="Додаткові дії">
+                <a href="https://www.facebook.com/samoorg" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+                    </svg>
+                </a>
+                <div class="lang-switch lang-switch--text" role="navigation" aria-label="Мова">
+                    <a href="#" class="lang-link is-active" hreflang="uk" lang="uk">Укр</a>
+                    <a href="#" class="lang-link" hreflang="en" lang="en">En</a>
+                </div>
+                <a href="search.html" class="search-icon" aria-label="Пошук">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </a>
+            </div>
+            <button type="button" class="mobile-menu-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head page-head--image" style="--head-image: url('img/head-partners.jpg')">
+            <div class="container">
+                <h1>Блог партнерів</h1>
+                <p class="page-head__lead">Новини та матеріали ресурсних центрів і партнерських організацій мережі в одному місці.</p>
+                
+            </div>
+        </section>        <section class="section section--tight">
+            <div class="container">
+                <div class="archive-toolbar">
+                    <form class="search-field" role="search" data-archive-search>
+                        <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.5" y2="16.5"></line></svg>
+                        <label class="visually-hidden" for="archive-q">Пошук</label>
+                        <input type="search" id="archive-q" name="q" placeholder="Пошук у блозі…" autocomplete="off">
+                    </form>
+                    <div class="chips chips--scroll" role="group" aria-label="Тематичний напрям">
+                        <span class="chips__label">Тематичний напрям:</span>
+                        <button type="button" class="chip" aria-pressed="true" data-topic-chip="all">Усі напрями</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="democracy">Місцева демократія</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="civil-society">Громадянське суспільство</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="self-government">Самоврядування</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="legislation">Законодавство</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="recovery">Відновлення та трансформація громад</button><button type="button" class="chip" aria-pressed="false" data-topic-chip="security">Безпека та стійкість громад</button>
+                    </div>
+                </div>
+                <div class="toolbar-row">
+                    <div class="form-field">
+                        <label class="form-label" for="center-filter">Ресурсний центр</label>
+                        <select class="select" id="center-filter" data-center-filter>
+                            <option value="all">Усі ресурсні центри</option><option value="kyiv">Київ</option><option value="dnipro">Дніпро</option><option value="donetsk">Донеччина</option><option value="luhansk">Луганщина</option><option value="lutsk">Луцьк</option><option value="lviv">Львів</option><option value="mykolaiv">Миколаїв</option><option value="rivne">Рівне</option><option value="kherson">Херсон</option><option value="vinnytsia">Вінниця</option><option value="chernivtsi">Чернівці</option><option value="chernihiv">Чернігів</option><option value="zakarpattia">Закарпаття</option><option value="kropyvnytskyi">Кропивницький</option><option value="sumy">Суми</option><option value="zaporizhzhia">Запоріжжя</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="archive-meta"><span data-count-text>Показано матеріалів: <strong data-count></strong></span></div>
+                <div class="cards-grid" data-filter-list>
+                    <article class="post-card" data-topic="democracy" data-center="vinnytsia" data-search="у вінниці презентували результати бюджету участі мешканці обрали 14 проєктів благоустрою та освіти.">
+                        <div class="post-card__media"><img src="news_2.png" alt="" loading="lazy"></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Місцева демократія</span>
+                                <time class="post-card__date">18 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">У Вінниці презентували результати бюджету участі</a></h3>
+                            <p class="post-card__excerpt">Мешканці обрали 14 проєктів благоустрою та освіти.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Вінниця</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="self-government" data-center="lviv" data-search="львівський ресурсний центр допоміг створити три нові осн консультації щодо статутів і реєстрації для мешканців кварталів.">
+                        <div class="post-card__media"><div class="cover" aria-hidden="true"><span class="cover__label">Самоврядування</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Самоврядування</span>
+                                <time class="post-card__date">14 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Львівський ресурсний центр допоміг створити три нові ОСН</a></h3>
+                            <p class="post-card__excerpt">Консультації щодо статутів і реєстрації для мешканців кварталів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Львів</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="security" data-center="sumy" data-search="суми: тренінг з безпеки для активних мешканців практичні навички першої допомоги та організації укриттів.">
+                        <div class="post-card__media"><div class="cover cover--gray" aria-hidden="true"><span class="cover__label">Безпека та стійкість громад</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Безпека та стійкість громад</span>
+                                <time class="post-card__date">11 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Суми: тренінг з безпеки для активних мешканців</a></h3>
+                            <p class="post-card__excerpt">Практичні навички першої допомоги та організації укриттів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Суми</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="recovery" data-center="chernihiv" data-search="чернігівщина: громадські обговорення плану відновлення понад 200 мешканців долучилися до обговорення пріоритетів.">
+                        <div class="post-card__media"><img src="news_1.png" alt="" loading="lazy"></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Відновлення та трансформація громад</span>
+                                <time class="post-card__date">6 травня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Чернігівщина: громадські обговорення плану відновлення</a></h3>
+                            <p class="post-card__excerpt">Понад 200 мешканців долучилися до обговорення пріоритетів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Чернігів</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="legislation" data-center="kherson" data-search="херсон: консультації щодо змін до статуту громади ресурсний центр підготував пропозиції до робочої групи.">
+                        <div class="post-card__media"><div class="cover cover--light" aria-hidden="true"><span class="cover__label">Законодавство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Законодавство</span>
+                                <time class="post-card__date">29 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Херсон: консультації щодо змін до статуту громади</a></h3>
+                            <p class="post-card__excerpt">Ресурсний центр підготував пропозиції до робочої групи.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Херсон</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="civil-society" data-center="vinnytsia" data-search="вінниця: форум громадських ініціатив ініціативи громади представили свої проєкти партнерам.">
+                        <div class="post-card__media"><div class="cover cover--accent" aria-hidden="true"><span class="cover__label">Громадянське суспільство</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Громадянське суспільство</span>
+                                <time class="post-card__date">22 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Вінниця: форум громадських ініціатив</a></h3>
+                            <p class="post-card__excerpt">Ініціативи громади представили свої проєкти партнерам.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Вінниця</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="democracy" data-center="lutsk" data-search="луцьк: школа електронної демократії мешканців навчали користуватися петиціями та е-консультаціями." hidden data-more-item>
+                        <div class="post-card__media"><div class="cover" aria-hidden="true"><span class="cover__label">Місцева демократія</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Місцева демократія</span>
+                                <time class="post-card__date">15 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Луцьк: школа електронної демократії</a></h3>
+                            <p class="post-card__excerpt">Мешканців навчали користуватися петиціями та е-консультаціями.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Луцьк</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="self-government" data-center="rivne" data-search="рівне: зустріч голів осн міста обговорили спільні проблеми та план дій на рік." hidden data-more-item>
+                        <div class="post-card__media"><div class="cover cover--gray" aria-hidden="true"><span class="cover__label">Самоврядування</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Самоврядування</span>
+                                <time class="post-card__date">9 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Рівне: зустріч голів ОСН міста</a></h3>
+                            <p class="post-card__excerpt">Обговорили спільні проблеми та план дій на рік.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Рівне</strong></p>
+                        </div>
+                    </article><article class="post-card" data-topic="recovery" data-center="kyiv" data-search="київщина: як громади відбудовують соціальну інфраструктуру досвід трьох громад з ресурсами від міжнародних партнерів." hidden data-more-item>
+                        <div class="post-card__media"><div class="cover cover--light" aria-hidden="true"><span class="cover__label">Відновлення та трансформація громад</span></div></div>
+                        <div class="post-card__body">
+                            <div class="post-card__meta">
+                                <span class="topic">Відновлення та трансформація громад</span>
+                                <time class="post-card__date">2 квітня 2026</time>
+                            </div>
+                            <h3 class="post-card__title"><a href="news-single.html">Київщина: як громади відбудовують соціальну інфраструктуру</a></h3>
+                            <p class="post-card__excerpt">Досвід трьох громад з ресурсами від міжнародних партнерів.</p>
+                            <p class="post-card__author"><strong>Ресурсний центр · Київ</strong></p>
+                        </div>
+                    </article>
+                </div>
+                <div class="empty-state" data-empty hidden>
+                    <h3>Нічого не знайдено</h3>
+                    <p>Спробуйте інший запит або оберіть «Усі напрями».</p>
+                </div>
+                <div class="load-more">
+                    <button type="button" class="btn btn-outline" data-load-more>Завантажити більше</button>
+                    <span data-load-more-status>Показано <span data-shown></span> з 9</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo footer-logo">
+                        <a href="index.html"><img src="logo_full_white.png" alt="АСН" class="logo-full logo-full--footer" width="200" height="56"></a>
+                    </div>
+                    <p>ВГО «Асоціація сприяння самоорганізації населення» — громадська організація, що об'єднує експертів заради розбудови сильного самоврядування в Україні.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/samoorg" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg></a>
+                    </div>
+                </div>
+                <nav class="footer-links" aria-label="Карта сайту">
+                    <h4>Карта сайту</h4>
+                    <ul class="footer-sitemap">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="directions.html">Напрями діяльності</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="democracy.html">Місцева демократія</a></li>
+                        <li><a href="analytics.html">Аналітика</a></li>
+                        <li><a href="library.html">Бібліотека</a></li>
+                        <li><a href="news.html">Новини Асоціації</a></li>
+                        <li><a href="network.html">Мережа ресурсних центрів</a></li>
+                        <li><a href="partners.html">Блог партнерів</a></li>
+                        <li><a href="search.html">Пошук</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-links">
+                    <h4>Контакти</h4>
+                    <p>м. Київ, Україна<br>вул. Прикладна, 10</p>
+                    <p><a href="mailto:info@samoorg.com.ua">info@samoorg.com.ua</a></p>
+                    <p><a href="tel:+380440000000">+38 (044) 000-00-00</a></p>
+                    <p><a href="about.html#contacts">Написати нам &rarr;</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="disclaimer">
+                    <p>Цей сайт створено в межах проєкту, що підтримується Міжнародним фондом «Відродження» та Фондом Східна Європа. Зміст матеріалів є виключною відповідальністю ВГО АСН.</p>
+                </div>
+                <div class="copyright">
+                    &copy; 2026 ВГО «Асоціація сприяння самоорганізації населення». Всі права захищено.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
