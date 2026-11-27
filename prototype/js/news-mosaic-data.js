@@ -1,0 +1,63 @@
+/** Prototype mock pool — WP: replace with WP_Query / REST. */
+(function (g) {
+  g.AcsoData = g.AcsoData || {};
+  g.AcsoData.newsMosaicPool = [
+  {
+    "title": "Андрій Крупник про реформу ОСН у колонці для «Інтерфакс-Україна»",
+    "date": "7 листопада, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-01.jpg",
+    "tags": "Блоги"
+  },
+  {
+    "title": "Галина Семенець про майбутнє військово-цивільних адміністрацій: нова колонка у блогах LIGA.net",
+    "date": "3 листопада, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-02.jpg",
+    "tags": "Блоги"
+  },
+  {
+    "title": "Реінтеграція має починатися з людей: Ірина Іванова виступила на Donbas Media Forum",
+    "date": "22 жовтня, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-03.jpg",
+    "tags": "featured · Блоги · Події",
+    "featured": true
+  },
+  {
+    "title": "У Києві презентували путівник із дистанційної та гібридної участі жителів",
+    "date": "17 вересня, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-04.jpg",
+    "tags": "Події"
+  },
+  {
+    "title": "Від стійкості громад до оновлення законодавства: у Києві відбулася XV Всеукраїнська конференція",
+    "date": "15 вересня, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-05.jpg",
+    "tags": "Події"
+  },
+  {
+    "title": "Форум місцевої демократії 2026: головні підсумки",
+    "date": "20 травня, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-06.jpg",
+    "tags": "Події"
+  },
+  {
+    "title": "Стартувала школа громадської участі для органів самоорганізації населення",
+    "date": "15 травня, 2026",
+    "href": "news-single.html",
+    "img": "img/news/news-01.jpg",
+    "tags": "Навчання"
+  },
+  {
+    "title": "Анонс: вебінар «Бюджет участі: як запустити в громаді»",
+    "date": "9 травня, 2026",
+    "href": "news-single.html",
+    "img": "",
+    "tags": "Анонс"
+  }
+];
+})(typeof window !== "undefined" ? window : this);

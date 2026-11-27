@@ -10,7 +10,7 @@
     <link rel="preload" href="fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page page--home">
     <!-- Header -->
     <header class="site-header">
         <div class="container header-inner">
@@ -22,7 +22,6 @@
             <nav class="main-nav" id="main-nav" aria-label="Головне меню">
                 <ul class="main-nav__list">
                     <li><a href="about.html">Про нас</a></li>
-                    <li><a href="directions.html">Напрями діяльності</a></li>
                     <li><a href="democracy.html">Місцева демократія</a></li>
                     <li class="has-dropdown">
                         <a href="analytics.html" aria-haspopup="true">Аналітика <span class="nav-caret" aria-hidden="true">▾</span></a>
@@ -59,10 +58,163 @@
     </header>
 
     <main>
-        <section class="page-head page-head--image page-head--home" style="--head-image: url('img/hero-home.jpg')">
+        <section class="page-head page-head--image page-head--home home-hero" data-home-hero style="--head-image: url('img/hero-home.jpg')" aria-label="Головний блок і новини">
+            <div class="container home-hero__body">
+                <div class="home-hero__zero" data-home-hero-zero>
+                    <h1 class="page-head__title">Сильні громади — основа демократичної України</h1>
+                    <p class="page-head__lead">Сприяємо розбудові демократії та спроможних громад через самоорганізацію населення й дієву громадську участь<br>у справах місцевого значення.</p>
+                </div>
+                <div class="home-hero__mosaic" data-home-hero-mosaic hidden>
+                    <div class="news-mosaic news-mosaic--hero" data-news-mosaic data-news-mosaic-hero>
+                        <div class="news-mosaic__grid" data-news-mosaic-grid>
+                            <div class="news-mosaic__cell" data-mosaic-slot="tl"></div>
+                            <div class="news-mosaic__cell news-mosaic__cell--feat" data-mosaic-slot="feat"></div>
+                            <div class="news-mosaic__cell" data-mosaic-slot="tr"></div>
+                            <div class="news-mosaic__cell" data-mosaic-slot="bl"></div>
+                            <div class="news-mosaic__cell" data-mosaic-slot="br"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-hero__controls" data-home-hero-controls>
+                    <button type="button" class="hero-slider__arrow hero-slider__arrow--prev" data-mosaic-prev aria-label="Попередні матеріали" disabled>
+                        <span aria-hidden="true">&#8592;</span>
+                    </button>
+                    <p class="home-hero__hint" data-mosaic-hint aria-live="polite">Новини Асоціації</p>
+                    <button type="button" class="hero-slider__arrow hero-slider__arrow--next" data-mosaic-next aria-label="Відкрити новини">
+                        <span aria-hidden="true">&#8594;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Directions (slider only — no page-head plaque) -->
+        <section class="directions section" aria-labelledby="home-directions-title">
             <div class="container">
-                <h1 class="page-head__title">Сильні громади — основа демократичної України</h1>
-                <p class="page-head__lead">Сприяємо розбудові демократії та спроможних громад через самоорганізацію населення й дієву громадську участь<br>у справах місцевого значення.</p>
+                <div class="section-header">
+                    <h2 id="home-directions-title">Напрями діяльності</h2>
+                    <a href="directions.html" class="link-arrow">Усі напрями &rarr;</a>
+                </div>
+                <div class="dir-focus" data-dir-focus aria-roledescription="carousel" aria-label="Напрями діяльності">
+                    <div class="dir-focus__viewport">
+                        <div class="dir-focus__track" data-dir-track>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=democracy">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Місцева демократія</h3>
+                                        <p class="dir-focus__text">Інструменти участі, громадські слухання, місцеві ініціативи та електронна демократія для громад.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-01.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=civil-society">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Громадянське суспільство</h3>
+                                        <p class="dir-focus__text">Розвиток громадських організацій, підтримка волонтерських рухів та активізація мешканців.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-02.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=self-government">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Самоврядування</h3>
+                                        <p class="dir-focus__text">Посилення спроможності органів самоорганізації населення (ОСН) та місцевих рад.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-03.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=legislation">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Законодавство</h3>
+                                        <p class="dir-focus__text">Аналіз та формування місцевої політики, розробка статутів територіальних громад.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-04.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=recovery">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Відновлення громад</h3>
+                                        <p class="dir-focus__text">Планування відбудови, залучення ресурсів та сталий розвиток деокупованих територій.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-05.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=security">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Безпека та стійкість</h3>
+                                        <p class="dir-focus__text">Створення безпечного середовища, цивільний захист та адаптація до кризових умов.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-06.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=transparency">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Прозора влада</h3>
+                                        <p class="dir-focus__text">Моніторинг рішень місцевої влади, відкриті дані та підзвітність перед громадою.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-07.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=education">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Освіта для громад</h3>
+                                        <p class="dir-focus__text">Навчальні програми, школи місцевої демократії та обмін досвідом між громадами.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-08.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=gender">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Гендерна рівність</h3>
+                                        <p class="dir-focus__text">Рівна участь жінок і чоловіків у місцевому самоврядуванні та громадському житті.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-09.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="dir-focus__slide" data-dir-slide>
+                                <a class="dir-focus__card" href="analytics.html?topic=digital">
+                                    <div class="dir-focus__body">
+                                        <h3 class="dir-focus__title">Цифрові послуги</h3>
+                                        <p class="dir-focus__text">Електронні сервіси участі, цифровізація послуг і доступність онлайн-інструментів.</p>
+                                    </div>
+                                    <div class="dir-focus__media">
+                                        <img src="img/directions/dir-10.jpg" alt="" loading="lazy" width="460" height="720" decoding="async">
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="dir-focus__controls">
+                        <button type="button" class="dir-focus__arrow" data-dir-prev aria-label="Попередній напрям"><span aria-hidden="true">&#8592;</span></button>
+                        <button type="button" class="dir-focus__arrow" data-dir-next aria-label="Наступний напрям"><span aria-hidden="true">&#8594;</span></button>
+                        <div class="dir-focus__rail" aria-hidden="true"><span data-dir-progress></span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -74,7 +226,7 @@
                     <a href="analytics.html" class="link-arrow">Вся аналітика &rarr;</a>
                 </div>
                 <div class="cards-grid"><article class="post-card" data-topic="self-government" data-search="оцінка спроможності територіальних громад під час воєнного стану аналітична записка щодо ключових викликів місцевого самоврядування у прифронтових регіонах.">
-                        <div class="post-card__media"><img src="news_1.png" alt="" loading="lazy"></div>
+                        <div class="post-card__media"><img src="img/news/news-01.jpg" alt="" loading="lazy"></div>
                         <div class="post-card__body">
                             <div class="post-card__meta">
                                 <span class="topic">Самоврядування</span>
@@ -85,7 +237,7 @@
                             
                         </div>
                     </article><article class="post-card" data-topic="democracy" data-search="впровадження інструментів електронної демократії в умовах обмеженого доступу до інформації результати всеукраїнського дослідження прозорості ухвалення рішень на місцях.">
-                        <div class="post-card__media"><img src="news_2.png" alt="" loading="lazy"></div>
+                        <div class="post-card__media"><img src="img/news/news-02.jpg" alt="" loading="lazy"></div>
                         <div class="post-card__body">
                             <div class="post-card__meta">
                                 <span class="topic">Місцева демократія</span>
@@ -144,7 +296,7 @@
                     <a href="partners.html" class="link-arrow">Блог партнерів &rarr;</a>
                 </div>
                 <div class="cards-grid"><article class="post-card post-card--tile" data-topic="democracy" data-center="vinnytsia" data-search="у вінниці презентували результати бюджету участі мешканці обрали 14 проєктів благоустрою та освіти.">
-                        <div class="post-card__media"><img src="news_2.png" alt="" loading="lazy"></div>
+                        <div class="post-card__media"><img src="img/news/news-02.jpg" alt="" loading="lazy"></div>
                         <div class="post-card__body">
                             <div class="post-card__meta">
                                 <span class="topic">Місцева демократія</span>
@@ -199,7 +351,6 @@
                     <h4>Карта сайту</h4>
                     <ul class="footer-sitemap">
                         <li><a href="index.html">Головна</a></li>
-                        <li><a href="directions.html">Напрями діяльності</a></li>
                         <li><a href="about.html">Про нас</a></li>
                         <li><a href="democracy.html">Місцева демократія</a></li>
                         <li><a href="analytics.html">Аналітика</a></li>
@@ -228,7 +379,16 @@
             </div>
         </div>
     </footer>
+    <script src="js/util.js"></script>
+    <script src="js/news-mosaic-data.js"></script>
+    <script src="js/news-mosaic.js"></script>
+    <script src="js/home-hero.js"></script>
+    <script src="js/dir-slider.js"></script>
+    <script src="js/archive-filters.js"></script>
+    <script src="js/network-map.js"></script>
+    <script src="js/ui-chrome.js"></script>
+    <script src="js/i18n-demo.js"></script>
+    <script src="js/main.js"></script>
 
-    <script src="script.js"></script>
 </body>
 </html>
