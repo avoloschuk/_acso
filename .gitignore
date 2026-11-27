@@ -11,3 +11,14 @@ secrets/ssh/
 wp-config.php
 wp-content/uploads/
 wp-content/cache/
+
+# Content assets — stay on disk + deploy to staging; not in Git.
+# In WP these become Media Library / CPT fields, not theme files.
+prototype/img/team/
+prototype/img/board/
+prototype/img/directions/
+prototype/img/news/
+prototype/content/
+
+# Theme PHP scaffold — local only until WP staging theme work; not part of static prototype.
+wp-content/themes/acso-child/

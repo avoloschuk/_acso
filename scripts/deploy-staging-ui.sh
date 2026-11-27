@@ -38,9 +38,12 @@ if [[ -n "$REMOTE_HAS_RSYNC" ]]; then
     "$ROOT/prototype/" "${SSH_USER}@${SSH_HOST}:${TARGET}/"
 else
   echo "Note: rsync not on server (normal on shared hosting); using tar stream over SSH." >&2
+  # Wipe ui/ first — tar extract does not delete stale files from previous deploys.
+  "${SSH_BASE[@]}" "${SSH_USER}@${SSH_HOST}" \
+    "mkdir -p ${TARGET} && find ${TARGET} -mindepth 1 -maxdepth 1 -exec rm -rf {} +"
   # Stream gzip tar through SSH; files land unpacked — no .tar.gz saved on disk.
   COPYFILE_DISABLE=1 tar czf - --exclude '.DS_Store' --exclude '._*' -C "$ROOT/prototype" . | \
-    "${SSH_BASE[@]}" "${SSH_USER}@${SSH_HOST}" "mkdir -p ${TARGET} && cd ${TARGET} && tar xzf -"
+    "${SSH_BASE[@]}" "${SSH_USER}@${SSH_HOST}" "cd ${TARGET} && tar xzf -"
 fi
 
 echo "Open: ${STAGING_URL}ui/"
