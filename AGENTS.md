@@ -10,7 +10,9 @@
 | Прототип головної | `prototype/index.html`, `prototype/style.css` |
 | Секрети (локально) | `secrets/acso.env` — **не комітити, не логувати** |
 | Staging (writes OK) | `STAGING_*` у `secrets/acso.env`, URL `https://staging.samoorg.com.ua/` |
-| Деплой статичного UI | `scripts/deploy-staging-ui.sh` → `…/ui/` |
+| Деплой статичного UI | `scripts/deploy-staging-ui.sh` → wipe + `…/ui/` |
+| QA staging↔local | `qa-automation/` (Playwright; artifacts не в Git) |
+| Контент-медіа | На диску (`prototype/img/{team,…}/`), **не в Git**; у Git лише код під майбутній WP |
 
 ## Правила агента
 

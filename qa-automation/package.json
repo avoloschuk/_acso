@@ -1,0 +1,17 @@
+{
+  "name": "acso-qa-automation",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright QA: mirror staging /ui, compare to local prototype (screenshots, DOM, anchors).",
+  "scripts": {
+    "mirror": "node mirror-staging.mjs",
+    "compare": "node compare.mjs",
+    "anchors": "node anchors.mjs",
+    "all": "node mirror-staging.mjs && node compare.mjs && node anchors.mjs"
+  },
+  "devDependencies": {
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.49.0",
+    "pngjs": "^7.0.0"
+  }
+}

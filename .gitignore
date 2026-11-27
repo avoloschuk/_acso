@@ -22,3 +22,6 @@ prototype/content/
 
 # Theme PHP scaffold — local only until WP staging theme work; not part of static prototype.
 wp-content/themes/acso-child/
+
+# Legacy path; suite lives in qa-automation/ (artifacts/node_modules ignored there)
+_qa/
