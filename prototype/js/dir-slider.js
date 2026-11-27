@@ -140,9 +140,32 @@
     if (next) next.addEventListener('click', onNext);
 
     slides.forEach(function (slide, i) {
+      var card = slide.querySelector('.dir-focus__card');
+      var body = slide.querySelector('.dir-focus__body');
+      if (card && body && !body.querySelector('[data-dir-open]')) {
+        var href = card.getAttribute('href') || '#';
+        var cta = document.createElement('a');
+        cta.href = href;
+        cta.className = 'dir-focus__cta';
+        cta.setAttribute('data-dir-open', '');
+        cta.textContent = 'Детальніше →';
+        body.appendChild(cta);
+        // Card itself is chrome for the carousel — not a navigation target.
+        card.setAttribute('role', 'group');
+        card.removeAttribute('href');
+        if (card.tagName === 'A') {
+          // Keep semantics without leaving the page on every click.
+          card.addEventListener('click', function (event) {
+            if (event.target.closest('[data-dir-open]')) return;
+            event.preventDefault();
+          });
+        }
+      }
+
       slide.addEventListener('click', function (event) {
-        if (i === index) return;
+        if (event.target.closest('[data-dir-open]')) return;
         event.preventDefault();
+        if (i === index) return;
         goTo(i, true);
       });
     });

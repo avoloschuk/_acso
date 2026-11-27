@@ -19,3 +19,6 @@ prototype/img/board/
 prototype/img/directions/
 prototype/img/news/
 prototype/content/
+
+# Theme PHP scaffold — local only until WP staging theme work; not part of static prototype.
+wp-content/themes/acso-child/
