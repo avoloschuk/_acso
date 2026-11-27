@@ -546,16 +546,67 @@ function initSiteSearch() {
 
 function initSubnav() {
     const links = Array.from(document.querySelectorAll('[data-subnav-link]'));
-    if (!links.length || !('IntersectionObserver' in window)) return;
+    if (!links.length) return;
+
+    const header = document.querySelector('.site-header');
+    const subnav = document.querySelector('.subnav');
+    const anchorGap = 4;
+
+    function stickyOffset() {
+        return (header?.offsetHeight ?? 0) + (subnav?.offsetHeight ?? 0) + anchorGap;
+    }
+
+    function sectionAnchor(section) {
+        if (!section) return null;
+        return (
+            section.querySelector(':scope > .container > h2')
+            || section.querySelector(':scope > .container .section-header h2')
+            || section.querySelector(':scope > .container h2')
+            || section
+        );
+    }
+
+    function scrollToSectionId(id, behavior = 'smooth') {
+        const section = document.getElementById(id);
+        const anchor = sectionAnchor(section);
+        if (!anchor) return;
+        const top = anchor.getBoundingClientRect().top + window.scrollY - stickyOffset();
+        window.scrollTo({ top: Math.max(0, top), behavior });
+    }
+
+    links.forEach((a) => {
+        a.addEventListener('click', (e) => {
+            const id = a.hash.slice(1);
+            if (!id || !document.getElementById(id)) return;
+            e.preventDefault();
+            scrollToSectionId(id);
+            history.pushState(null, '', `#${id}`);
+            links.forEach((link) => link.classList.remove('is-active'));
+            a.classList.add('is-active');
+        });
+    });
+
+    if (location.hash) {
+        const id = location.hash.slice(1);
+        if (document.getElementById(id)) {
+            requestAnimationFrame(() => scrollToSectionId(id, 'auto'));
+        }
+    }
+
+    if (!('IntersectionObserver' in window)) return;
 
     const byId = new Map(links.map((a) => [a.hash.slice(1), a]));
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
             links.forEach((a) => a.classList.remove('is-active'));
-            var currentLink = byId.get(entry.target.id); if (currentLink) currentLink.classList.add('is-active');
+            const currentLink = byId.get(entry.target.id);
+            if (currentLink) currentLink.classList.add('is-active');
         });
-    }, { rootMargin: '-40% 0px -55% 0px' });
+    }, {
+        rootMargin: `-${stickyOffset()}px 0px -60% 0px`,
+        threshold: 0,
+    });
     byId.forEach((_, id) => {
         const el = document.getElementById(id);
         if (el) observer.observe(el);

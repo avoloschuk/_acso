@@ -56,6 +56,7 @@
   --text-lg: 1.0125rem;
   --text-h3: 1.35rem;
   --text-h2: 2.25rem;
+  --text-page-title: calc(var(--text-h2) * 0.9); /* page-head + section h2 (e.g. Місія, Про нас) */
   --text-h1: 3.15rem;
   
   /* Layout */
@@ -63,6 +64,11 @@
   --nav-item-h: var(--header-logo-h);
   --nav-pad-top: 6px;
   --site-header-offset: calc(3.35rem + 1px + var(--nav-active-inset));
+  --subnav-height: 2.65rem;
+  --scroll-anchor-gap: 4px;
+  --scroll-anchor-offset: calc(var(--site-header-offset) + var(--subnav-height) + var(--scroll-anchor-gap));
+  --section-after-head-top: 0.64; /* середина між 1 і 0.28 */
+  --section-after-head-bottom: 0.75; /* між 1 і 0.5 */
   --header-container-max: 1360px;
   --nav-font: 0.75rem;
   --nav-pad-x: 8px;
@@ -135,7 +141,7 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: var(--text-h1); letter-spacing: -0.02em; }
-h2 { font-size: var(--text-h2); letter-spacing: -0.01em; margin-bottom: 1.2rem; }
+h2 { font-size: var(--text-page-title); letter-spacing: -0.01em; margin-bottom: 1.2rem; }
 h3 { font-size: var(--text-h3); }
 
 .mt-4 { margin-top: 1.5rem; }
@@ -291,8 +297,9 @@ h3 { font-size: var(--text-h3); }
 
 .logo-full--header {
   height: var(--header-logo-h);
-  width: auto;
+  width: var(--header-logo-h);
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .logo-org-name {
@@ -366,6 +373,8 @@ h3 { font-size: var(--text-h3); }
 
 .logo-full--footer {
   height: 42px;
+  width: 42px;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -1582,7 +1591,9 @@ h3 { font-size: var(--text-h3); }
 
 /* Page head — same visual language as the home hero */
 .page-head {
-  padding: 1.85rem 0 2.1rem;
+  --page-head-top-lift: 0.28125; /* ×0.5 ×0.75 ×0.75 cumulative top lift */
+  --page-head-pad-top: calc(1.85rem * var(--page-head-top-lift));
+  padding: var(--page-head-pad-top) 0 2.1rem;
   color: #fff;
   background-color: var(--brand-dark);
   background-image:
@@ -1595,7 +1606,8 @@ h3 { font-size: var(--text-h3); }
   max-width: 44rem;
   margin-bottom: 0;
   padding-bottom: 0;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.62rem, 3.6vw, var(--text-page-title));
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: #fff;
   border-bottom: 0;
@@ -1603,12 +1615,16 @@ h3 { font-size: var(--text-h3); }
 
 .page-head__lead {
   max-width: 44rem;
-  margin-top: 0.75rem;
+  margin-top: 0.6rem;
   padding-left: 1.25rem;
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   border-left: 4px solid rgba(233, 80, 41, 0.55);
+}
+
+.page-head__lead--surface {
+  color: rgba(18, 22, 42, 0.88);
 }
 
 .breadcrumbs {
@@ -3101,7 +3117,7 @@ a.topic:hover {
 
 .subnav a {
   display: block;
-  padding: 1rem 0.85rem;
+  padding: 0.65rem 0.85rem;
   font-size: 0.8125rem;
   white-space: nowrap;
   color: var(--gray-800);
@@ -3124,29 +3140,37 @@ a.topic:hover {
   }
 }
 
-[id] {
-  scroll-margin-top: 9rem;
+/* About — anchor sections: less empty space above/below blocks */
+main:has(> .subnav) > .section {
+  padding-block: 2.1rem;
 }
 
-.mission {
-  display: grid;
-  gap: 2rem;
+main:has(> .subnav) > .section .section-header {
+  margin-bottom: 1.35rem;
 }
 
-@media (min-width: 992px) {
-  .mission {
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-  }
+main:has(> .subnav) > .section h2 {
+  margin-bottom: 0.65rem;
 }
 
-.mission__quote {
-  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-  font-weight: 300;
-  line-height: 1.35;
-  color: var(--brand-dark);
-  border-left: 4px solid var(--brand-accent);
-  padding-left: 1.5rem;
+html:has(main > .subnav) {
+  scroll-padding-top: var(--scroll-anchor-offset);
+}
+
+main:has(> .subnav) > .section[id] {
+  scroll-margin-top: var(--scroll-anchor-offset);
+}
+
+[id]:not(main > .section[id]) {
+  scroll-margin-top: var(--site-header-offset);
+}
+
+main:has(> .subnav) > .section#mission {
+  padding-top: 1.35rem;
+}
+
+.mission h2 {
+  margin-bottom: 0;
 }
 
 .history {
@@ -3674,8 +3698,13 @@ mark {
     padding: 2.7rem 0;
   }
 
+  main:has(> .subnav) > .section {
+    padding-block: 1.65rem;
+  }
+
   .page-head {
-    padding: 1.3rem 0 1.5rem;
+    --page-head-pad-top: calc(1.3rem * var(--page-head-top-lift, 0.28125));
+    padding: var(--page-head-pad-top) 0 1.5rem;
   }
 
   .contact-form {
@@ -3744,8 +3773,15 @@ mark {
   background-position: center, right center;
 }
 
-/* Home — dot-map from legacy hero: full Ukraine visible on the right, not stretched */
+/* Home hero — +30% over legacy 18.9rem block (rubber min-height) */
 .page-head--image.page-head--home {
+  --home-hero-scale: 1.3;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  min-height: calc(18.9rem * var(--home-hero-scale));
+  --home-hero-top-lift: 0.28125;
+  padding: calc(2.15rem * var(--home-hero-scale) * var(--home-hero-top-lift)) 0 calc(2.7rem * var(--home-hero-scale));
   background-color: #050c1e;
   background-image:
     linear-gradient(115deg, rgba(18, 22, 42, 0.92) 0%, rgba(18, 22, 42, 0.55) 45%, rgba(18, 22, 42, 0.35) 100%),
@@ -3755,10 +3791,50 @@ mark {
   background-position: center, 70% center;
 }
 
+.page-head--home .container {
+  width: 100%;
+}
+
+.page-head--home .page-head__title {
+  max-width: 44rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: var(--font-base);
+  font-size: clamp(1.62rem, 3.6vw, var(--text-page-title));
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  .page-head--home .page-head__title {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
 @media (min-width: 768px) {
   .page-head--image.page-head--home {
     background-size: cover, auto 100%;
     background-position: center, right center;
+  }
+}
+
+@media (min-width: 992px) {
+  .page-head--image.page-head--home {
+    height: calc(18.9rem * var(--home-hero-scale));
+    min-height: calc(18.9rem * var(--home-hero-scale));
+    padding: calc(1.25rem * var(--home-hero-scale) * var(--home-hero-top-lift, 0.28125)) 0 calc(4rem * var(--home-hero-scale));
+  }
+
+  .page-head--home .page-head__title {
+    line-height: 1.08;
+  }
+
+  .page-head--home .page-head__lead {
+    line-height: 1.4;
   }
 }
 
@@ -3779,6 +3855,43 @@ mark {
   }
 }
 
+/* Homepage — analytics, network, partner news: ~40% tighter section spacing */
+main:has(> .page-head--home) {
+  --home-section-pad-scale: 0.6;
+}
+
+main:has(> .page-head--home) > .section {
+  padding-block: calc(3.9rem * var(--home-section-pad-scale));
+}
+
+main:has(> .page-head--home) .section-header {
+  margin-bottom: calc(2.35rem * var(--home-section-pad-scale));
+}
+
+@media (max-width: 767px) {
+  main:has(> .page-head--home) > .section {
+    padding-block: calc(2.7rem * var(--home-section-pad-scale));
+  }
+}
+
+/* Перший контент одразу після синьої шапки — «Теми», карусель напрямів тощо */
+main:has(> .page-head--image[style*="head-democracy"]) > .page-head--image + .section,
+main:has(> .page-head--image[style*="head-directions"]) > .page-head--image + .section {
+  padding-top: calc(3.9rem * var(--section-after-head-top));
+  padding-bottom: calc(3.9rem * var(--section-after-head-bottom));
+}
+
+main:has(> .page-head--image[style*="head-democracy"]) > .page-head--image + .section .section-header {
+  margin-bottom: 1.725rem;
+}
+
+@media (max-width: 767px) {
+  main:has(> .page-head--image[style*="head-democracy"]) > .page-head--image + .section,
+  main:has(> .page-head--image[style*="head-directions"]) > .page-head--image + .section {
+    padding-top: calc(2.7rem * 0.63);
+    padding-bottom: calc(2.7rem * 0.72);
+  }
+}
 
 /* Direction carousel (homepage, IRF-style) */
 .dir-slider__viewport {
